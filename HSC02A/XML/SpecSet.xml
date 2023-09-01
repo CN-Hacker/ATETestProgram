@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Blocks>
+	<SpecSet name="Setting1">
+		<Selector>min max typ</Selector>
+		<Variable  name="v_cc" type="Voltage">
+			<Value>2.9,3.1,3</Value>
+		</Variable >
+	</SpecSet>
+</Blocks>

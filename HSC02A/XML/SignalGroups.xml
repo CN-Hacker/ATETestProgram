@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Blocks ProjectXmlVersion="">
+	<Signalgroups>
+		<Signalgroup name="AllDPS">
+			<Type>Supply</Type>
+			<SigRefExpression>IOVDD+DVDD+AVDD</SigRefExpression>
+		</Signalgroup>
+		<Signalgroup name="AllDVP">
+			<Type>InOut</Type>
+			<SigRefExpression>D0+D1+D2+D3+D4+D5+D6+D7+D8+D9+PCLK+VCYN+HREF</SigRefExpression>
+		</Signalgroup>
+		<Signalgroup name="Leakage_PMU">
+			<Type>InOut</Type>
+			<SigRefExpression>SDA+SCL+EXCLK</SigRefExpression>
+		</Signalgroup>
+		<Signalgroup name="Leakage_UTP">
+			<Type>InOut</Type>
+			<SigRefExpression>TEST+LDOEN+RSTB+I2CID</SigRefExpression>
+		</Signalgroup>
+		<Signalgroup name="OS_VDD">
+			<Type>InOut</Type>
+			<SigRefExpression>D0+D1+D2+D3+D4+D5+D6+D7+D8+D9+HREF+PCLK+VCYN</SigRefExpression>
+		</Signalgroup>
+		<Signalgroup name="AllPMU">
+			<Type>InOut</Type>
+			<SigRefExpression>VCYN+SDA+SCL+PCLK+HREF+EXCLK+D9+D8+D7+D6+D5+D4+D3+D2+D0+D1</SigRefExpression>
+		</Signalgroup>
+		<Signalgroup name="ALLUTP">
+			<Type>InOut</Type>
+			<SigRefExpression>TEST+RSTB+LDOEN+I2CID</SigRefExpression>
+		</Signalgroup>
+		<Signalgroup name="General_Image">
+			<Type>InOut</Type>
+			<SigRefExpression>SDA+SCL+EXCLK+RSTB+I2CID</SigRefExpression>
+		</Signalgroup>
+		<Signalgroup name="Config">
+			<Type>InOut</Type>
+			<SigRefExpression>VCYN+SDA+SCL+RSTB+PCLK+I2CID+HREF+EXCLK+D9+D8+D7+D6+D4+D5+D3+D2+D1+D0</SigRefExpression>
+		</Signalgroup>
+		<Signalgroup name="IDD_Active_dis">
+			<Type>InOut</Type>
+			<SigRefExpression>VCYN+TEST+PCLK+LDOEN+HREF+D9+D8+D7+D6+D5+D4+D3+D2+D1+D0+SDA+SCL+NVDD+HVDD</SigRefExpression>
+		</Signalgroup>
+		<Signalgroup name="NVDD_HVDD">
+			<Type>InOut</Type>
+			<SigRefExpression>HVDD+NVDD</SigRefExpression>
+		</Signalgroup>
+		<Signalgroup name="Leak_Pins">
+			<Type>InOut</Type>
+			<SigRefExpression>D0+D1+D2+D3+D4+D5+D6+D7+D8+D9+HREF+PCLK+VCYN+SDA+SCL+EXCLK+TEST+RSTB+LDOEN+I2CID</SigRefExpression>
+		</Signalgroup>
+		<Signalgroup name="IDD_Dis">
+			<Type>InOut</Type>
+			<SigRefExpression>TEST+LDOEN+I2CID</SigRefExpression>
+		</Signalgroup>
+	</Signalgroups>
+</Blocks>

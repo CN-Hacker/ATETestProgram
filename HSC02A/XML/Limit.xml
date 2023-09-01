@@ -1,0 +1,939 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Blocks ProjectXmlVersion="">
+	<Limit LimitName="DC">
+		<TestName>DarkCurrent</TestName>
+		<TestNum>6000</TestNum>
+	</Limit>
+	<Limit LimitName="CG">
+		<TestName>CG</TestName>
+		<TestNum>5104</TestNum>
+	</Limit>
+	<Limit LimitName="CG_R">
+		<TestName>CG</TestName>
+		<TestNum>5103</TestNum>
+	</Limit>
+	<Limit LimitName="CG_Gr">
+		<TestName>CG</TestName>
+		<TestNum>5102</TestNum>
+	</Limit>
+	<Limit LimitName="CG_Gb">
+		<TestName>CG</TestName>
+		<TestNum>5101</TestNum>
+	</Limit>
+	<Limit LimitName="CG_B">
+		<TestName>CG</TestName>
+		<TestNum>5100</TestNum>
+	</Limit>
+	<Limit LimitName="DarkAFPN">
+		<TestName>DarkFPN</TestName>
+		<TestNum>2300</TestNum>
+	</Limit>
+	<Limit LimitName="DarkHFPN">
+		<TestName>DarkFPN</TestName>
+		<TestNum>2301</TestNum>
+	</Limit>
+	<Limit LimitName="DarkVFPN">
+		<TestName>DarkFPN</TestName>
+		<TestNum>2302</TestNum>
+	</Limit>
+	<Limit LimitName="AllPMU">
+		<TestName>OS_VSS</TestName>
+		<TestNum>100</TestNum>
+		<LoLimit>-1</LoLimit>
+		<HiLimit>-0.2</HiLimit>
+		<Unit>V</Unit>
+	</Limit>
+	<Limit LimitName="OS_VDD">
+		<TestName>OS_VDD</TestName>
+		<TestNum>200</TestNum>
+		<LoLimit>0.2</LoLimit>
+		<HiLimit>1</HiLimit>
+		<Unit>V</Unit>
+	</Limit>
+	<Limit LimitName="ALLUTP">
+		<TestName>OS_VSS</TestName>
+		<TestNum>150</TestNum>
+		<LoLimit>-1</LoLimit>
+		<HiLimit>-0.2</HiLimit>
+		<Unit>V</Unit>
+	</Limit>
+	<Limit LimitName="SDA">
+		<TestName>IIL</TestName>
+		<TestNum>300</TestNum>
+		<LoLimit>-5</LoLimit>
+		<HiLimit>5</HiLimit>
+		<Unit>uA</Unit>
+	</Limit>
+	<Limit LimitName="SCL">
+		<TestName>IIL</TestName>
+		<TestNum>301</TestNum>
+		<LoLimit>-5</LoLimit>
+		<HiLimit>5</HiLimit>
+		<Unit>uA</Unit>
+	</Limit>
+	<Limit LimitName="EXCLK">
+		<TestName>IIL</TestName>
+		<TestNum>302</TestNum>
+		<LoLimit>-5</LoLimit>
+		<HiLimit>5</HiLimit>
+		<Unit>uA</Unit>
+	</Limit>
+	<Limit LimitName="TEST">
+		<TestName>IIL</TestName>
+		<TestNum>303</TestNum>
+		<LoLimit>-5</LoLimit>
+		<HiLimit>5</HiLimit>
+		<Unit>uA</Unit>
+	</Limit>
+	<Limit LimitName="LDOEN">
+		<TestName>IIL</TestName>
+		<TestNum>304</TestNum>
+		<LoLimit>-5</LoLimit>
+		<HiLimit>5</HiLimit>
+		<Unit>uA</Unit>
+	</Limit>
+	<Limit LimitName="RSTB">
+		<TestName>IIL</TestName>
+		<TestNum>305</TestNum>
+		<LoLimit>-5</LoLimit>
+		<HiLimit>5</HiLimit>
+		<Unit>uA</Unit>
+	</Limit>
+	<Limit LimitName="I2CID">
+		<TestName>IIL</TestName>
+		<TestNum>306</TestNum>
+		<LoLimit>-5</LoLimit>
+		<HiLimit>5</HiLimit>
+		<Unit>uA</Unit>
+	</Limit>
+	<Limit LimitName="SDA">
+		<TestName>IIH</TestName>
+		<TestNum>400</TestNum>
+		<LoLimit>-5</LoLimit>
+		<HiLimit>5</HiLimit>
+		<Unit>uA</Unit>
+	</Limit>
+	<Limit LimitName="SCL">
+		<TestName>IIH</TestName>
+		<TestNum>401</TestNum>
+		<LoLimit>-5</LoLimit>
+		<HiLimit>5</HiLimit>
+		<Unit>uA</Unit>
+	</Limit>
+	<Limit LimitName="EXCLK">
+		<TestName>IIH</TestName>
+		<TestNum>402</TestNum>
+		<LoLimit>-5</LoLimit>
+		<HiLimit>5</HiLimit>
+		<Unit>uA</Unit>
+	</Limit>
+	<Limit LimitName="TEST">
+		<TestName>IIH</TestName>
+		<TestNum>403</TestNum>
+		<LoLimit>-5</LoLimit>
+		<HiLimit>5</HiLimit>
+		<Unit>uA</Unit>
+	</Limit>
+	<Limit LimitName="LDOEN">
+		<TestName>IIH</TestName>
+		<TestNum>404</TestNum>
+		<LoLimit>-5</LoLimit>
+		<HiLimit>5</HiLimit>
+		<Unit>uA</Unit>
+	</Limit>
+	<Limit LimitName="RSTB">
+		<TestName>IIH</TestName>
+		<TestNum>405</TestNum>
+		<LoLimit>-5</LoLimit>
+		<HiLimit>5</HiLimit>
+		<Unit>uA</Unit>
+	</Limit>
+	<Limit LimitName="I2CID">
+		<TestName>IIH</TestName>
+		<TestNum>406</TestNum>
+		<LoLimit>-5</LoLimit>
+		<HiLimit>5</HiLimit>
+		<Unit>uA</Unit>
+	</Limit>
+	<Limit LimitName="AVDD">
+		<TestName>IDD_Active</TestName>
+		<TestNum>500</TestNum>
+		<Unit>mA</Unit>
+	</Limit>
+	<Limit LimitName="DVDD">
+		<TestName>IDD_Active</TestName>
+		<TestNum>501</TestNum>
+		<Unit>mA</Unit>
+	</Limit>
+	<Limit LimitName="SumCurrent">
+		<TestName>IDD_Active</TestName>
+		<TestNum>503</TestNum>
+		<LoLimit>6</LoLimit>
+		<HiLimit>50</HiLimit>
+		<Unit>mA</Unit>
+	</Limit>
+	<Limit LimitName="IOVDD">
+		<TestName>IDD_Active</TestName>
+		<TestNum>502</TestNum>
+		<Unit>mA</Unit>
+	</Limit>
+	<Limit LimitName="VDeadLine_R">
+		<TestName>Light</TestName>
+		<TestNum>2404</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="VDeadLine_Gr">
+		<TestName>Light</TestName>
+		<TestNum>2405</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="VDeadLine_Gb">
+		<TestName>Light</TestName>
+		<TestNum>2406</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="BlackPixelCount_Gr">
+		<TestName>Light</TestName>
+		<TestNum>2411</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="BlackPixelCount_Gb">
+		<TestName>Light</TestName>
+		<TestNum>2412</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="BlackPixelCount_B">
+		<TestName>Light</TestName>
+		<TestNum>2413</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="WhitePixelCount_R">
+		<TestName>Light</TestName>
+		<TestNum>2414</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="WhitePixelCount_Gr">
+		<TestName>Light</TestName>
+		<TestNum>2415</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="WhitePixelCount_Gb">
+		<TestName>Light</TestName>
+		<TestNum>2416</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="Ratio_Gr_Gb">
+		<TestName>Light</TestName>
+		<TestNum>2421</TestNum>
+		<LoLimit>0.97</LoLimit>
+		<HiLimit>1.03</HiLimit>
+	</Limit>
+	<Limit LimitName="Ratio_R_Gr">
+		<TestName>Light</TestName>
+		<TestNum>2422</TestNum>
+		<LoLimit>0.49</LoLimit>
+		<HiLimit>0.67</HiLimit>
+	</Limit>
+	<Limit LimitName="Mean_R">
+		<TestName>Light</TestName>
+		<TestNum>2431</TestNum>
+		<LoLimit>200</LoLimit>
+		<HiLimit>400</HiLimit>
+	</Limit>
+	<Limit LimitName="Mean_Gr">
+		<TestName>Light</TestName>
+		<TestNum>2432</TestNum>
+		<LoLimit>400</LoLimit>
+		<HiLimit>650</HiLimit>
+	</Limit>
+	<Limit LimitName="Mean_Gb">
+		<TestName>Light</TestName>
+		<TestNum>2433</TestNum>
+		<LoLimit>400</LoLimit>
+		<HiLimit>650</HiLimit>
+	</Limit>
+	<Limit LimitName="Std_Gr">
+		<TestName>Light</TestName>
+		<TestNum>2441</TestNum>
+		<LoLimit>0</LoLimit>
+		<HiLimit>40</HiLimit>
+	</Limit>
+	<Limit LimitName="Std_Gb">
+		<TestName>Light</TestName>
+		<TestNum>2442</TestNum>
+		<LoLimit>0</LoLimit>
+		<HiLimit>40</HiLimit>
+	</Limit>
+	<Limit LimitName="Shading_ROI2">
+		<TestName>Light</TestName>
+		<TestNum>2451</TestNum>
+		<LoLimit>0.52</LoLimit>
+		<HiLimit>0.98</HiLimit>
+	</Limit>
+	<Limit LimitName="Shading_ROI3">
+		<TestName>Light</TestName>
+		<TestNum>2452</TestNum>
+		<LoLimit>0.29</LoLimit>
+		<HiLimit>0.75</HiLimit>
+	</Limit>
+	<Limit LimitName="Shading_ROI4">
+		<TestName>Light</TestName>
+		<TestNum>2453</TestNum>
+		<LoLimit>0.4</LoLimit>
+		<HiLimit>0.85</HiLimit>
+	</Limit>
+	<Limit LimitName="Shading_ROI6">
+		<TestName>Light</TestName>
+		<TestNum>2454</TestNum>
+		<LoLimit>0.4</LoLimit>
+		<HiLimit>0.85</HiLimit>
+	</Limit>
+	<Limit LimitName="Shading_ROI7">
+		<TestName>Light</TestName>
+		<TestNum>2455</TestNum>
+		<LoLimit>0.29</LoLimit>
+		<HiLimit>0.75</HiLimit>
+	</Limit>
+	<Limit LimitName="Shading_ROI8">
+		<TestName>Light</TestName>
+		<TestNum>2456</TestNum>
+		<LoLimit>0.52</LoLimit>
+		<HiLimit>0.98</HiLimit>
+	</Limit>
+	<Limit LimitName="Balance_RB_ROI2">
+		<TestName>Light</TestName>
+		<TestNum>2461</TestNum>
+		<LoLimit>0.6</LoLimit>
+		<HiLimit>1.05</HiLimit>
+	</Limit>
+	<Limit LimitName="Balance_RB_ROI3">
+		<TestName>Light</TestName>
+		<TestNum>2462</TestNum>
+		<LoLimit>0.6</LoLimit>
+		<HiLimit>1.05</HiLimit>
+	</Limit>
+	<Limit LimitName="Balance_RB_ROI4">
+		<TestName>Light</TestName>
+		<TestNum>2463</TestNum>
+		<LoLimit>0.6</LoLimit>
+		<HiLimit>1.05</HiLimit>
+	</Limit>
+	<Limit LimitName="Balance_RB_ROI6">
+		<TestName>Light</TestName>
+		<TestNum>2464</TestNum>
+		<LoLimit>0.6</LoLimit>
+		<HiLimit>1.05</HiLimit>
+	</Limit>
+	<Limit LimitName="Balance_RB_ROI7">
+		<TestName>Light</TestName>
+		<TestNum>2465</TestNum>
+		<LoLimit>0.6</LoLimit>
+		<HiLimit>1.05</HiLimit>
+	</Limit>
+	<Limit LimitName="Balance_RB_ROI8">
+		<TestName>Light</TestName>
+		<TestNum>2466</TestNum>
+		<LoLimit>0.6</LoLimit>
+		<HiLimit>1.05</HiLimit>
+	</Limit>
+	<Limit LimitName="Balance_GrGb_ROI2">
+		<TestName>Light</TestName>
+		<TestNum>2471</TestNum>
+		<LoLimit>0.85</LoLimit>
+		<HiLimit>1.1</HiLimit>
+	</Limit>
+	<Limit LimitName="Balance_GrGb_ROI3">
+		<TestName>Light</TestName>
+		<TestNum>2472</TestNum>
+		<LoLimit>0.85</LoLimit>
+		<HiLimit>1.1</HiLimit>
+	</Limit>
+	<Limit LimitName="Balance_GrGb_ROI4">
+		<TestName>Light</TestName>
+		<TestNum>2473</TestNum>
+		<LoLimit>0.85</LoLimit>
+		<HiLimit>1.1</HiLimit>
+	</Limit>
+	<Limit LimitName="Balance_GrGb_ROI6">
+		<TestName>Light</TestName>
+		<TestNum>2474</TestNum>
+		<LoLimit>0.85</LoLimit>
+		<HiLimit>1.1</HiLimit>
+	</Limit>
+	<Limit LimitName="Balance_GrGb_ROI7">
+		<TestName>Light</TestName>
+		<TestNum>2475</TestNum>
+		<LoLimit>0.85</LoLimit>
+		<HiLimit>1.1</HiLimit>
+	</Limit>
+	<Limit LimitName="Balance_GrGb_ROI8">
+		<TestName>Light</TestName>
+		<TestNum>2476</TestNum>
+		<LoLimit>0.85</LoLimit>
+		<HiLimit>1.1</HiLimit>
+	</Limit>
+	<Limit LimitName="Balance_GrGb_ROI9">
+		<TestName>Light</TestName>
+		<TestNum>2477</TestNum>
+		<LoLimit>0.85</LoLimit>
+		<HiLimit>1.1</HiLimit>
+	</Limit>
+	<Limit LimitName="RG_ROI37">
+		<TestName>Light</TestName>
+		<TestNum>2481</TestNum>
+		<LoLimit>-0.09</LoLimit>
+		<HiLimit>0.09</HiLimit>
+	</Limit>
+	<Limit LimitName="RG_ROI28">
+		<TestName>Light</TestName>
+		<TestNum>2482</TestNum>
+		<LoLimit>-0.09</LoLimit>
+		<HiLimit>0.09</HiLimit>
+	</Limit>
+	<Limit LimitName="BG_ROI37">
+		<TestName>Light</TestName>
+		<TestNum>2491</TestNum>
+		<LoLimit>-0.09</LoLimit>
+		<HiLimit>0.09</HiLimit>
+	</Limit>
+	<Limit LimitName="BG_ROI28">
+		<TestName>Light</TestName>
+		<TestNum>2492</TestNum>
+		<LoLimit>-0.09</LoLimit>
+		<HiLimit>0.09</HiLimit>
+	</Limit>
+	<Limit LimitName="Ratio_ROI5_Gr_Gb">
+		<TestName>Light</TestName>
+		<TestNum>2501</TestNum>
+		<LoLimit>0.97</LoLimit>
+		<HiLimit>1.03</HiLimit>
+	</Limit>
+	<Limit LimitName="Ratio_ROI5_R_Gr">
+		<TestName>Light</TestName>
+		<TestNum>2502</TestNum>
+		<LoLimit>0.5</LoLimit>
+		<HiLimit>0.68</HiLimit>
+	</Limit>
+	<Limit LimitName="Cluster_Cluster5">
+		<TestName>Light</TestName>
+		<TestNum>2531</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="Cluster_4T1">
+		<TestName>Light</TestName>
+		<TestNum>2532</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="Cluster_4T2">
+		<TestName>Light</TestName>
+		<TestNum>2533</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="Cluster_4T3">
+		<TestName>Light</TestName>
+		<TestNum>2534</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="Cluster_4T4">
+		<TestName>Light</TestName>
+		<TestNum>2535</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="Cluster_3X1">
+		<TestName>Light</TestName>
+		<TestNum>2536</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="Cluster_1X3">
+		<TestName>Light</TestName>
+		<TestNum>2537</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="Cluster_2X1">
+		<TestName>Light</TestName>
+		<TestNum>2538</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="Cluster_1X2">
+		<TestName>Light</TestName>
+		<TestNum>2539</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="Cluster_2X1X1">
+		<TestName>Light</TestName>
+		<TestNum>2540</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="Cluster_1X2X1">
+		<TestName>Light</TestName>
+		<TestNum>2541</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="Cluster_2X2">
+		<TestName>Light</TestName>
+		<TestNum>2542</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="Cluster_2D1">
+		<TestName>Light</TestName>
+		<TestNum>2543</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="Cluster_2D2">
+		<TestName>Light</TestName>
+		<TestNum>2544</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="Cluster_2D3">
+		<TestName>Light</TestName>
+		<TestNum>2545</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="Cluster_2D4">
+		<TestName>Light</TestName>
+		<TestNum>2546</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="Cluster_1X1">
+		<TestName>Light</TestName>
+		<TestNum>2547</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="FWC_Gr">
+		<TestName>FWC</TestName>
+		<TestNum>5001</TestNum>
+	</Limit>
+	<Limit LimitName="FWC_Gb">
+		<TestName>FWC</TestName>
+		<TestNum>5002</TestNum>
+	</Limit>
+	<Limit LimitName="FWC_B">
+		<TestName>FWC</TestName>
+		<TestNum>5003</TestNum>
+	</Limit>
+	<Limit LimitName="FWC_R">
+		<TestName>FWC</TestName>
+		<TestNum>5000</TestNum>
+	</Limit>
+	<Limit LimitName="Sensitivity_B">
+		<TestName>PRNU</TestName>
+		<TestNum>3007</TestNum>
+	</Limit>
+	<Limit LimitName="Sensitivity_Gb">
+		<TestName>PRNU</TestName>
+		<TestNum>3006</TestNum>
+	</Limit>
+	<Limit LimitName="Sensitivity_Gr">
+		<TestName>PRNU</TestName>
+		<TestNum>3005</TestNum>
+	</Limit>
+	<Limit LimitName="Sensitivity_R">
+		<TestName>PRNU</TestName>
+		<TestNum>3004</TestNum>
+	</Limit>
+	<Limit LimitName="PRNU_B">
+		<TestName>PRNU</TestName>
+		<TestNum>3003</TestNum>
+	</Limit>
+	<Limit LimitName="PRNU_Gb">
+		<TestName>PRNU</TestName>
+		<TestNum>3002</TestNum>
+	</Limit>
+	<Limit LimitName="PRNU_Gr">
+		<TestName>PRNU</TestName>
+		<TestNum>3001</TestNum>
+	</Limit>
+	<Limit LimitName="PRNU_R">
+		<TestName>PRNU</TestName>
+		<TestNum>3000</TestNum>
+	</Limit>
+	<Limit LimitName="SumIDD">
+		<TestName>Light</TestName>
+		<TestNum>2600</TestNum>
+		<Unit>mA</Unit>
+	</Limit>
+	<Limit LimitName="Cluster_Big">
+		<TestName>Light</TestName>
+		<TestNum>2548</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="ClusterCount">
+		<TestName>Light</TestName>
+		<TestNum>2530</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="Scratch">
+		<TestName>Light</TestName>
+		<TestNum>2520</TestNum>
+	</Limit>
+	<Limit LimitName="Blemish">
+		<TestName>Light</TestName>
+		<TestNum>2510</TestNum>
+		<LoLimit>0</LoLimit>
+		<HiLimit>0.07</HiLimit>
+	</Limit>
+	<Limit LimitName="Ratio_ROI5_B_Gb">
+		<TestName>Light</TestName>
+		<TestNum>2503</TestNum>
+		<LoLimit>0.67</LoLimit>
+		<HiLimit>0.91</HiLimit>
+	</Limit>
+	<Limit LimitName="Ratio_ROI5_R_B">
+		<TestName>Light</TestName>
+		<TestNum>2500</TestNum>
+		<LoLimit>0.63</LoLimit>
+		<HiLimit>0.85</HiLimit>
+	</Limit>
+	<Limit LimitName="BG_ROI46">
+		<TestName>Light</TestName>
+		<TestNum>2493</TestNum>
+		<LoLimit>-0.09</LoLimit>
+		<HiLimit>0.09</HiLimit>
+	</Limit>
+	<Limit LimitName="BG_ROI19">
+		<TestName>Light</TestName>
+		<TestNum>2490</TestNum>
+		<LoLimit>-0.09</LoLimit>
+		<HiLimit>0.09</HiLimit>
+	</Limit>
+	<Limit LimitName="RG_ROI46">
+		<TestName>Light</TestName>
+		<TestNum>2483</TestNum>
+		<LoLimit>-0.09</LoLimit>
+		<HiLimit>0.09</HiLimit>
+	</Limit>
+	<Limit LimitName="RG_ROI19">
+		<TestName>Light</TestName>
+		<TestNum>2480</TestNum>
+		<LoLimit>-0.09</LoLimit>
+		<HiLimit>0.09</HiLimit>
+	</Limit>
+	<Limit LimitName="Balances_GrGb_Max">
+		<TestName>Light</TestName>
+		<TestNum>2478</TestNum>
+		<LoLimit>0.85</LoLimit>
+		<HiLimit>1.1</HiLimit>
+	</Limit>
+	<Limit LimitName="Balance_GrGb_ROI1">
+		<TestName>Light</TestName>
+		<TestNum>2470</TestNum>
+		<LoLimit>0.85</LoLimit>
+		<HiLimit>1.1</HiLimit>
+	</Limit>
+	<Limit LimitName="Balances_RB_Max">
+		<TestName>Light</TestName>
+		<TestNum>2468</TestNum>
+		<LoLimit>0.5</LoLimit>
+		<HiLimit>0.87</HiLimit>
+	</Limit>
+	<Limit LimitName="Balance_RB_ROI9">
+		<TestName>Light</TestName>
+		<TestNum>2467</TestNum>
+		<LoLimit>0.6</LoLimit>
+		<HiLimit>1.05</HiLimit>
+	</Limit>
+	<Limit LimitName="Balance_RB_ROI1">
+		<TestName>Light</TestName>
+		<TestNum>2460</TestNum>
+		<LoLimit>0.6</LoLimit>
+		<HiLimit>1.05</HiLimit>
+	</Limit>
+	<Limit LimitName="Shading_ROI9">
+		<TestName>Light</TestName>
+		<TestNum>2457</TestNum>
+		<LoLimit>0.29</LoLimit>
+		<HiLimit>0.75</HiLimit>
+	</Limit>
+	<Limit LimitName="Shading_ROI1">
+		<TestName>Light</TestName>
+		<TestNum>2450</TestNum>
+		<LoLimit>0.29</LoLimit>
+		<HiLimit>0.75</HiLimit>
+	</Limit>
+	<Limit LimitName="Std_B">
+		<TestName>Light</TestName>
+		<TestNum>2443</TestNum>
+		<LoLimit>0</LoLimit>
+		<HiLimit>40</HiLimit>
+	</Limit>
+	<Limit LimitName="Std_R">
+		<TestName>Light</TestName>
+		<TestNum>2440</TestNum>
+		<LoLimit>0</LoLimit>
+		<HiLimit>40</HiLimit>
+	</Limit>
+	<Limit LimitName="Mean_B">
+		<TestName>Light</TestName>
+		<TestNum>2434</TestNum>
+		<LoLimit>210</LoLimit>
+		<HiLimit>410</HiLimit>
+	</Limit>
+	<Limit LimitName="Mean">
+		<TestName>Light</TestName>
+		<TestNum>2430</TestNum>
+		<LoLimit>302</LoLimit>
+		<HiLimit>530</HiLimit>
+	</Limit>
+	<Limit LimitName="IOVDD">
+		<TestName>Light</TestName>
+		<TestNum>2429</TestNum>
+		<Unit>mA</Unit>
+	</Limit>
+	<Limit LimitName="DVDD">
+		<TestName>Light</TestName>
+		<TestNum>2428</TestNum>
+		<Unit>mA</Unit>
+	</Limit>
+	<Limit LimitName="AVDD">
+		<TestName>Light</TestName>
+		<TestNum>2427</TestNum>
+		<Unit>mA</Unit>
+	</Limit>
+	<Limit LimitName="IOVDD">
+		<TestName>Light</TestName>
+		<TestNum>2426</TestNum>
+		<LoLimit>1</LoLimit>
+		<HiLimit>2</HiLimit>
+	</Limit>
+	<Limit LimitName="DVDD">
+		<TestName>Light</TestName>
+		<TestNum>2425</TestNum>
+		<LoLimit>1</LoLimit>
+		<HiLimit>2</HiLimit>
+	</Limit>
+	<Limit LimitName="AVDD">
+		<TestName>Light</TestName>
+		<TestNum>2424</TestNum>
+		<LoLimit>1</LoLimit>
+		<HiLimit>3</HiLimit>
+	</Limit>
+	<Limit LimitName="Ratio_B_Gb">
+		<TestName>Light</TestName>
+		<TestNum>2423</TestNum>
+		<LoLimit>0.69</LoLimit>
+		<HiLimit>0.93</HiLimit>
+	</Limit>
+	<Limit LimitName="Ratio_R_B">
+		<TestName>Light</TestName>
+		<TestNum>2420</TestNum>
+		<LoLimit>0.61</LoLimit>
+		<HiLimit>0.83</HiLimit>
+	</Limit>
+	<Limit LimitName="WhitePixelCount_B">
+		<TestName>Light</TestName>
+		<TestNum>2417</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="BlackPixelCount_R">
+		<TestName>Light</TestName>
+		<TestNum>2410</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="VDeadLine_B">
+		<TestName>Light</TestName>
+		<TestNum>2407</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="HDeadLine_B">
+		<TestName>Light</TestName>
+		<TestNum>2403</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="HDeadLine_Gb">
+		<TestName>Light</TestName>
+		<TestNum>2402</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="HDeadLine_Gr">
+		<TestName>Light</TestName>
+		<TestNum>2401</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="HDeadLine_R">
+		<TestName>Light</TestName>
+		<TestNum>2400</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="TempNoise">
+		<TestName>TempNoise</TestName>
+		<TestNum>2250</TestNum>
+	</Limit>
+	<Limit LimitName="Std">
+		<TestName>Dark_DPCOff</TestName>
+		<TestNum>2203</TestNum>
+		<LoLimit>0.1</LoLimit>
+		<HiLimit>2</HiLimit>
+	</Limit>
+	<Limit LimitName="Mean">
+		<TestName>Dark_DPCOff</TestName>
+		<TestNum>2202</TestNum>
+		<LoLimit>2</LoLimit>
+		<HiLimit>30</HiLimit>
+	</Limit>
+	<Limit LimitName="WhitePixel2">
+		<TestName>Dark_DPCOff</TestName>
+		<TestNum>2201</TestNum>
+		<HiLimit>40000</HiLimit>
+	</Limit>
+	<Limit LimitName="WhitePixel1">
+		<TestName>Dark_DPCOff</TestName>
+		<TestNum>2200</TestNum>
+		<HiLimit>12000</HiLimit>
+	</Limit>
+	<Limit LimitName="ClusterCount">
+		<TestName>Dark_DPCOn</TestName>
+		<TestNum>2010</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="Cluster5">
+		<TestName>Dark_DPCOn</TestName>
+		<TestNum>2011</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="Cluster_Big">
+		<TestName>Dark_DPCOn</TestName>
+		<TestNum>2028</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="Cluster_1X1">
+		<TestName>Dark_DPCOn</TestName>
+		<TestNum>2027</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="Cluster_2D4">
+		<TestName>Dark_DPCOn</TestName>
+		<TestNum>2026</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="Cluster_2D3">
+		<TestName>Dark_DPCOn</TestName>
+		<TestNum>2025</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="Cluster_2D2">
+		<TestName>Dark_DPCOn</TestName>
+		<TestNum>2024</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="Cluster_2D1">
+		<TestName>Dark_DPCOn</TestName>
+		<TestNum>2023</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="Cluster_2X2">
+		<TestName>Dark_DPCOn</TestName>
+		<TestNum>2022</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="Cluster_1X2X1">
+		<TestName>Dark_DPCOn</TestName>
+		<TestNum>2021</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="Cluster_2X1X1">
+		<TestName>Dark_DPCOn</TestName>
+		<TestNum>2020</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="Cluster_1X2">
+		<TestName>Dark_DPCOn</TestName>
+		<TestNum>2019</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="Cluster_2X1">
+		<TestName>Dark_DPCOn</TestName>
+		<TestNum>2018</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="Cluster_1X3">
+		<TestName>Dark_DPCOn</TestName>
+		<TestNum>2017</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="Cluster_3X1">
+		<TestName>Dark_DPCOn</TestName>
+		<TestNum>2016</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="Cluster_4T4">
+		<TestName>Dark_DPCOn</TestName>
+		<TestNum>2015</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="Cluster_4T3">
+		<TestName>Dark_DPCOn</TestName>
+		<TestNum>2014</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="Cluster_4T2">
+		<TestName>Dark_DPCOn</TestName>
+		<TestNum>2013</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="Cluster_4T1">
+		<TestName>Dark_DPCOn</TestName>
+		<TestNum>2012</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="Std">
+		<TestName>Dark_DPCOn</TestName>
+		<TestNum>2004</TestNum>
+		<LoLimit>0.1</LoLimit>
+		<HiLimit>2</HiLimit>
+	</Limit>
+	<Limit LimitName="Mean">
+		<TestName>Dark_DPCOn</TestName>
+		<TestNum>2003</TestNum>
+		<LoLimit>8</LoLimit>
+		<HiLimit>30</HiLimit>
+	</Limit>
+	<Limit LimitName="VDeadLineCount">
+		<TestName>Dark_DPCOn</TestName>
+		<TestNum>2002</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="HDeadLineCount">
+		<TestName>Dark_DPCOn</TestName>
+		<TestNum>2001</TestNum>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="BadPixelCount">
+		<TestName>Dark_DPCOn</TestName>
+		<TestNum>2000</TestNum>
+		<HiLimit>5</HiLimit>
+	</Limit>
+	<Limit LimitName="IIC">
+		<TestName>IIC</TestName>
+		<TestNum>1000</TestNum>
+		<LoLimit>0</LoLimit>
+		<HiLimit>0</HiLimit>
+	</Limit>
+	<Limit LimitName="DVDD">
+		<TestName>PowerShort</TestName>
+		<TestNum>251</TestNum>
+		<LoLimit>-1</LoLimit>
+		<HiLimit>-0.2</HiLimit>
+		<Unit>V</Unit>
+	</Limit>
+	<Limit LimitName="IOVDD">
+		<TestName>PowerShort</TestName>
+		<TestNum>252</TestNum>
+		<LoLimit>-1</LoLimit>
+		<HiLimit>-0.2</HiLimit>
+		<Unit>V</Unit>
+	</Limit>
+	<Limit LimitName="CVDD">
+		<TestName>PowerShort</TestName>
+		<TestNum>253</TestNum>
+		<LoLimit>-1</LoLimit>
+		<HiLimit>-0.2</HiLimit>
+		<Unit>V</Unit>
+	</Limit>
+	<Limit LimitName="AVDD">
+		<TestName>PowerShort</TestName>
+		<TestNum>250</TestNum>
+		<LoLimit>-1</LoLimit>
+		<HiLimit>-0.2</HiLimit>
+		<Unit>V</Unit>
+	</Limit>
+</Blocks>

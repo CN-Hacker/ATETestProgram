@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Blocks ProjectXmlVersion="">
+	<UserVars>
+		<Variable name="PD_RS_Voltage" type="Voltage">
+			<Value>1.8V</Value>
+		</Variable>
+	</UserVars>
+</Blocks>

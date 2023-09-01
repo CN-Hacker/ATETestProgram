@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Blocks ProjectXmlVersion="">
+	<TimingMap name="DefaultName0">
+		<Domain name="default">
+			<WaveformMap>
+				<SigRef>ALLUTP</SigRef>
+				<WaveformMapDef name="wfs1" period="per0">seq1</WaveformMapDef>
+			</WaveformMap>
+		</Domain>
+	</TimingMap>
+</Blocks>

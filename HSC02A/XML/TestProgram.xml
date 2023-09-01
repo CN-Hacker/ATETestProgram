@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Blocks>
+	<TestProgram>
+		<Task>
+			<Type>Install</Type>
+			<Thread>Single</Thread>
+			<FlowRef>INSTALL_FLOW</FlowRef>
+		</Task>
+		<Task>
+			<Type>Init</Type>
+			<Thread>Single</Thread>
+			<FlowRef>INIT_FLOW</FlowRef>
+		</Task>
+		<Task>
+			<Type>Main</Type>
+			<Thread>Multi</Thread>
+			<FlowRef>MAIN_FLOW</FlowRef>
+		</Task>
+		<Task>
+			<Type>Alarm</Type>
+			<Thread>Multi</Thread>
+			<FlowRef>ALARM_FLOW</FlowRef>
+		</Task>
+		<Task>
+			<Type>PowerDown</Type>
+			<Thread>Multi</Thread>
+			<FlowRef>POWERDOWN_FLOW</FlowRef>
+		</Task>
+	</TestProgram>
+</Blocks>

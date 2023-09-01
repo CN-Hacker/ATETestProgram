@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Blocks>
+	<RunResultMap>
+		<FlowItemRef name="Dctest1_Flow">
+			<Result value="1">Fail 1 GHz</Result>
+			<Result value="-1">All Fail</Result>
+			<Result value="0">All Pass</Result>
+			<Default>Uninterpreted Run Result</Default>
+		</FlowItemRef>
+	</RunResultMap>
+</Blocks>
+

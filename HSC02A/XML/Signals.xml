@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Blocks ProjectXmlVersion="">
+	<Signals>
+		<Signal name="D5">
+			<Type>InOut</Type>
+			<DutPin>0</DutPin>
+		</Signal>
+		<Signal name="D4">
+			<Type>InOut</Type>
+			<DutPin>1</DutPin>
+		</Signal>
+		<Signal name="D3">
+			<Type>InOut</Type>
+			<DutPin>2</DutPin>
+		</Signal>
+		<Signal name="D2">
+			<Type>InOut</Type>
+			<DutPin>3</DutPin>
+		</Signal>
+		<Signal name="D1">
+			<Type>InOut</Type>
+			<DutPin>4</DutPin>
+		</Signal>
+		<Signal name="D0">
+			<Type>InOut</Type>
+			<DutPin>5</DutPin>
+		</Signal>
+		<Signal name="IOVDD">
+			<Type>Supply</Type>
+			<DutPin>6</DutPin>
+		</Signal>
+		<Signal name="EXCLK">
+			<Type>InOut</Type>
+			<DutPin>7</DutPin>
+		</Signal>
+		<Signal name="SDA">
+			<Type>InOut</Type>
+			<DutPin>8</DutPin>
+		</Signal>
+		<Signal name="SCL">
+			<Type>InOut</Type>
+			<DutPin>9</DutPin>
+		</Signal>
+		<Signal name="DVDD">
+			<Type>Supply</Type>
+			<DutPin>10</DutPin>
+		</Signal>
+		<Signal name="CVDD">
+			<Type>Supply</Type>
+			<DutPin>11</DutPin>
+		</Signal>
+		<Signal name="TEST">
+			<Type>InOut</Type>
+			<DutPin>13</DutPin>
+		</Signal>
+		<Signal name="AVDD">
+			<Type>Supply</Type>
+			<DutPin>14</DutPin>
+		</Signal>
+		<Signal name="LDOEN">
+			<Type>InOut</Type>
+			<DutPin>17</DutPin>
+		</Signal>
+		<Signal name="HVDD">
+			<Type>InOut</Type>
+			<DutPin>19</DutPin>
+		</Signal>
+		<Signal name="NVDD">
+			<Type>InOut</Type>
+			<DutPin>20</DutPin>
+		</Signal>
+		<Signal name="I2CID">
+			<Type>InOut</Type>
+			<DutPin>21</DutPin>
+		</Signal>
+		<Signal name="RSTB">
+			<Type>InOut</Type>
+			<DutPin>22</DutPin>
+		</Signal>
+		<Signal name="VCYN">
+			<Type>InOut</Type>
+			<DutPin>23</DutPin>
+		</Signal>
+		<Signal name="HREF">
+			<Type>InOut</Type>
+			<DutPin>24</DutPin>
+		</Signal>
+		<Signal name="PCLK">
+			<Type>InOut</Type>
+			<DutPin>25</DutPin>
+		</Signal>
+		<Signal name="D9">
+			<Type>InOut</Type>
+			<DutPin>26</DutPin>
+		</Signal>
+		<Signal name="D8">
+			<Type>InOut</Type>
+			<DutPin>27</DutPin>
+		</Signal>
+		<Signal name="D7">
+			<Type>InOut</Type>
+			<DutPin>28</DutPin>
+		</Signal>
+		<Signal name="D6">
+			<Type>InOut</Type>
+			<DutPin>29</DutPin>
+		</Signal>
+		<Signal name="HVDD_EN">
+			<Type>System</Type>
+			<DutPin>30</DutPin>
+		</Signal>
+		<Signal name="NVDD_EN">
+			<Type>System</Type>
+			<DutPin>31</DutPin>
+		</Signal>
+		<Signal name="I2C_EN">
+			<Type>System</Type>
+			<DutPin>32</DutPin>
+		</Signal>
+	</Signals>
+</Blocks>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Blocks ProjectXmlVersion="">
+	<Levels name="PowerOn">
+		<SigRef name="AVDD">
+			<Delay>0</Delay>
+			<IRange>512mA</IRange>
+			<IClamp>100mA</IClamp>
+			<VPS>2.8V</VPS>
+		</SigRef>
+		<SigRef name="IOVDD">
+			<Delay>0</Delay>
+			<IRange>512mA</IRange>
+			<IClamp>100mA</IClamp>
+			<VPS>1.8V</VPS>
+		</SigRef>
+		<SigRef name="DVDD">
+			<Delay>0</Delay>
+			<IRange>512mA</IRange>
+			<IClamp>100mA</IClamp>
+			<VPS>1.8V</VPS>
+		</SigRef>
+	</Levels>
+	<Levels name="PowerOff">
+		<SigRef name="IOVDD">
+			<VPS>0</VPS>
+			<IClamp>100mA</IClamp>
+			<IRange>512mA</IRange>
+			<Delay>0</Delay>
+		</SigRef>
+		<SigRef name="DVDD">
+			<VPS>0</VPS>
+			<IClamp>100mA</IClamp>
+			<IRange>512mA</IRange>
+			<Delay>0</Delay>
+		</SigRef>
+		<SigRef name="AVDD">
+			<VPS>0</VPS>
+			<IClamp>100mA</IClamp>
+			<IRange>512mA</IRange>
+			<Delay>0</Delay>
+		</SigRef>
+	</Levels>
+	<Levels name="General">
+		<SigRef name="Config">
+			<VIL>0</VIL>
+			<VIH>PD_RS_Voltage</VIH>
+			<VOL>0.9</VOL>
+			<VOH>0.9</VOH>
+		</SigRef>
+	</Levels>
+	<Levels name="ImageVterm">
+		<SigRef name="General_Image">
+			<VOH>0.9</VOH>
+			<VOL>0.9</VOL>
+			<VIH>PD_RS_Voltage</VIH>
+			<VIL>0</VIL>
+		</SigRef>
+		<SigRef name="AllDVP">
+			<VOL>1.5</VOL>
+			<VTERM_EN>1</VTERM_EN>
+			<VOH>1.5</VOH>
+			<VTERM>1.5</VTERM>
+			<VIH>PD_RS_Voltage</VIH>
+			<VIL>0</VIL>
+		</SigRef>
+	</Levels>
+	<Levels name="IDD">
+		<SigRef name="AllDVP">
+			<VTERM_EN>0</VTERM_EN>
+			<VOH>0.9</VOH>
+			<VOL>0.9</VOL>
+			<VIH>PD_RS_Voltage</VIH>
+			<VIL>0</VIL>
+		</SigRef>
+	</Levels>
+	<Levels name="ShutDownVterm">
+		<SigRef name="AllDVP">
+			<VTERM>1.5</VTERM>
+			<VOH>1.5</VOH>
+			<VIL>0</VIL>
+			<VIH>PD_RS_Voltage</VIH>
+			<VTERM_EN>0</VTERM_EN>
+			<VOL>1.5</VOL>
+		</SigRef>
+	</Levels>
+	<Levels name="Dark">
+		<SigRef name="AllDVP">
+			<VOL>0.7</VOL>
+			<VTERM_EN>0</VTERM_EN>
+			<VOH>0.7</VOH>
+			<VTERM>0.7</VTERM>
+			<VIH>PD_RS_Voltage</VIH>
+			<VIL>0</VIL>
+		</SigRef>
+	</Levels>
+</Blocks>

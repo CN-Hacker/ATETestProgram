@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Blocks ProjectXmlVersion="">
+	<TesterConfig>
+		<Chassis id="0" type="E06">
+			<Tester name="FirstTester">
+				<Instrument slot="0" type="Shark" name="Shark0" version="0.0.1"/>
+				<Instrument slot="5" type="Shark" name="Shark3" version="0.0.1"/>
+				<Instrument slot="4" type="Shark" name="Shark2" version="0.0.1"/>
+				<Instrument slot="1" type="Shark" name="Shark1" version="0.0.1"/>
+			</Tester>
+		</Chassis>
+	</TesterConfig>
+</Blocks>

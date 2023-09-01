@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Blocks ProjectXmlVersion="">
+	<CountGroup>
+		<Count name="Pass">
+			<Value>PassCount</Value>
+		</Count>
+		<Count name="Fail">
+			<Value>FailCount</Value>
+		</Count>
+	</CountGroup>
+	<BinDefs name="Default">
+		<BinGroup name="PassFailBins" type="PassFailBin">
+			<Bin name="Pass">
+				<ID>0</ID>
+				<Desc>Count of passing DUTS</Desc>
+			</Bin>
+			<Bin name="Fail">
+				<ID>1</ID>
+				<Desc>Count of falling DUTS</Desc>
+			</Bin>
+		</BinGroup>
+		<BinGroup name="HardBins" type="HardBin">
+			<Bin name="TestPass">
+				<ID>1</ID>
+				<Desc>DUTs Passing</Desc>
+				<Inherit>Pass</Inherit>
+			</Bin>
+			<Bin name="DCFail">
+				<ID>2</ID>
+				<Desc>DC Fail</Desc>
+				<Inherit>Fail</Inherit>
+			</Bin>
+			<Bin name="unknown">
+				<ID>0</ID>
+				<Desc>Invalid Bin caused by an exception</Desc>
+				<Inherit>Fail</Inherit>
+			</Bin>
+			<Bin name="HardBin3">
+				<ID>3</ID>
+				<Desc>HardBin3 Fail</Desc>
+				<Inherit>Fail</Inherit>
+			</Bin>
+			<Bin name="HardBin13">
+				<ID>13</ID>
+				<Desc>HardBin13 Fail</Desc>
+				<Inherit>Fail</Inherit>
+			</Bin>
+			<Bin name="HardBin5">
+				<ID>5</ID>
+				<Desc>HardBin5 Fail</Desc>
+				<Inherit>Fail</Inherit>
+			</Bin>
+			<Bin name="HardBin7">
+				<ID>7</ID>
+				<Desc>HardBin7 Fail</Desc>
+				<Inherit>Fail</Inherit>
+			</Bin>
+			<Bin name="HardBin21">
+				<ID>21</ID>
+				<Desc>HardBin21 Fail</Desc>
+				<Inherit>Fail</Inherit>
+			</Bin>
+			<Bin name="HardBin30">
+				<ID>30</ID>
+				<Desc>HardBin30 Fail</Desc>
+				<Inherit>Fail</Inherit>
+			</Bin>
+			<Bin name="HardBin31">
+				<ID>31</ID>
+				<Desc>HardBin31 Fail</Desc>
+				<Inherit>Fail</Inherit>
+			</Bin>
+			<Bin name="HardBin32">
+				<ID>32</ID>
+				<Desc>HardBin32 Fail</Desc>
+				<Inherit>Fail</Inherit>
+			</Bin>
+			<Bin name="HardBin34">
+				<ID>34</ID>
+				<Desc>HardBin34 Fail</Desc>
+				<Inherit>Fail</Inherit>
+			</Bin>
+			<Bin name="HardBin35">
+				<ID>35</ID>
+				<Desc>HardBin35 Fail</Desc>
+				<Inherit>Fail</Inherit>
+			</Bin>
+			<Bin name="HardBin36">
+				<ID>36</ID>
+				<Desc>HardBin36 Fail</Desc>
+				<Inherit>Fail</Inherit>
+			</Bin>
+			<Bin name="HardBin38">
+				<ID>38</ID>
+				<Desc>HardBin38 Fail</Desc>
+				<Inherit>Fail</Inherit>
+			</Bin>
+			<Bin name="HardBin380">
+				<ID>380</ID>
+				<Desc>HardBin380 Fail</Desc>
+				<Inherit>Fail</Inherit>
+			</Bin>
+		</BinGroup>
+		<BinGroup name="SoftBins" type="SoftBin">
+			<Bin name="PassALL">
+				<ID>1</ID>
+				<Desc>Pass</Desc>
+				<Inherit>TestPass</Inherit>
+			</Bin>
+			<Bin name="OpenTest_Fail">
+				<ID>2</ID>
+				<Desc>OpenTest Fail</Desc>
+				<Inherit>DCFail</Inherit>
+			</Bin>
+			<Bin name="PowerShort">
+				<ID>4</ID>
+				<Desc>PS Fail</Desc>
+				<Inherit>DCFail</Inherit>
+			</Bin>
+			<Bin name="SCCB">
+				<ID>5</ID>
+				<Desc>SCCB Fail</Desc>
+				<Inherit>HardBin5</Inherit>
+			</Bin>
+			<Bin name="IIL">
+				<ID>31</ID>
+				<Desc>IIL Fail</Desc>
+				<Inherit>HardBin3</Inherit>
+			</Bin>
+			<Bin name="IIH">
+				<ID>30</ID>
+				<Desc>IIH Fail</Desc>
+				<Inherit>HardBin3</Inherit>
+			</Bin>
+			<Bin name="IDD_Active">
+				<ID>13</ID>
+				<Desc>IDD_Active Fail</Desc>
+				<Inherit>HardBin13</Inherit>
+			</Bin>
+			<Bin name="ImageCap">
+				<ID>795</ID>
+				<Desc>ImageCap Fail</Desc>
+				<Inherit>HardBin7</Inherit>
+			</Bin>
+			<Bin name="DarkDPCon_DeadRow">
+				<ID>101</ID>
+				<Desc>DarkDPCon_DeadRow Fail</Desc>
+				<Inherit>HardBin21</Inherit>
+			</Bin>
+			<Bin name="DarkDPCon_DeadColumn">
+				<ID>102</ID>
+				<Desc>DarkDPCon_DeadColumn Fail</Desc>
+				<Inherit>HardBin21</Inherit>
+			</Bin>
+			<Bin name="DarkDPCon_Cluster">
+				<ID>110</ID>
+				<Desc>DarkDPCon_Cluster Fail</Desc>
+				<Inherit>HardBin21</Inherit>
+			</Bin>
+			<Bin name="WhiteSinglePixel_SinglePixel">
+				<ID>111</ID>
+				<Desc>WhiteSinglePixel_SinglePixel Fail</Desc>
+				<Inherit>HardBin21</Inherit>
+			</Bin>
+			<Bin name="LightDeadRow">
+				<ID>301</ID>
+				<Desc>LightDeadRow Fail</Desc>
+				<Inherit>HardBin30</Inherit>
+			</Bin>
+			<Bin name="LightDeadColumn">
+				<ID>302</ID>
+				<Desc>LightDeadColumn Fail</Desc>
+				<Inherit>HardBin30</Inherit>
+			</Bin>
+			<Bin name="LightBlackCluster">
+				<ID>311</ID>
+				<Desc>LightBlackCluster Fail</Desc>
+				<Inherit>HardBin31</Inherit>
+			</Bin>
+			<Bin name="LightWhiteCluster">
+				<ID>321</ID>
+				<Desc>LightWhiteCluster Fail</Desc>
+				<Inherit>HardBin32</Inherit>
+			</Bin>
+			<Bin name="LightWholeMean">
+				<ID>351</ID>
+				<Desc>LightWholeMean Fail</Desc>
+				<Inherit>HardBin34</Inherit>
+			</Bin>
+			<Bin name="LightWholeStd">
+				<ID>352</ID>
+				<Desc>LightWholeStd Fail</Desc>
+				<Inherit>HardBin35</Inherit>
+			</Bin>
+			<Bin name="LightRatio">
+				<ID>361</ID>
+				<Desc>LightRatio Fail</Desc>
+				<Inherit>HardBin36</Inherit>
+			</Bin>
+			<Bin name="ShadingRatio">
+				<ID>383</ID>
+				<Desc>ShadingRatio Fail</Desc>
+				<Inherit>HardBin38</Inherit>
+			</Bin>
+			<Bin name="Blemish">
+				<ID>380</ID>
+				<Desc>Blemish Fail</Desc>
+				<Inherit>HardBin380</Inherit>
+			</Bin>
+			<Bin name="Scratch">
+				<ID>390</ID>
+				<Desc>Scratch Fail</Desc>
+				<Inherit>HardBin380</Inherit>
+			</Bin>
+			<Bin name="ROI5_Ratio">
+				<ID>362</ID>
+				<Desc>ROI5_Ratio Fail</Desc>
+				<Inherit>HardBin36</Inherit>
+			</Bin>
+			<Bin name="FWC">
+				<ID>635</ID>
+				<Desc>DefaultName0</Desc>
+				<Inherit>HardBin36</Inherit>
+			</Bin>
+			<Bin name="unknown">
+				<ID>65535</ID>
+				<Desc>Invalid Bin caused by an exception</Desc>
+				<Inherit>unknown</Inherit>
+			</Bin>
+		</BinGroup>
+	</BinDefs>
+</Blocks>

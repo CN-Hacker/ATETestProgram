@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Blocks ProjectXmlVersion="">
+	<DCMeasures>
+		<DCMeasure name="PS">
+			<MeasureGroup sigRef="AllDPS" minorTestNum="0">
+				<Mode>FIMV</Mode>
+				<Method>Parallel</Method>
+				<ForceValue>-100uA</ForceValue>
+				<Range>256uA</Range>
+				<HiClamp>2V</HiClamp>
+				<LoClamp>-2V</LoClamp>
+				<SampleNum>1024</SampleNum>
+				<Delay>50mS</Delay>
+			</MeasureGroup>
+		</DCMeasure>
+		<DCMeasure name="IIL">
+			<MeasureGroup sigRef="Leakage_PMU" minorTestNum="0">
+				<Mode>FVMI</Mode>
+				<Method>Parallel</Method>
+				<ForceValue>0</ForceValue>
+				<Range>2uA</Range>
+				<HiClamp>2.2uA</HiClamp>
+				<LoClamp>-2.2uA</LoClamp>
+				<SampleNum>32</SampleNum>
+				<Delay>1mS</Delay>
+			</MeasureGroup>
+			<MeasureGroup sigRef="Leakage_UTP" minorTestNum="20">
+				<Mode>FVMI</Mode>
+				<Method>Parallel</Method>
+				<ForceValue>0</ForceValue>
+				<Range>4.096uA</Range>
+				<HiClamp>2.2uA</HiClamp>
+				<LoClamp>-2.2uA</LoClamp>
+				<SampleNum>1024</SampleNum>
+				<Delay>5mS</Delay>
+			</MeasureGroup>
+		</DCMeasure>
+		<DCMeasure name="IIH">
+			<MeasureGroup sigRef="Leakage_PMU" minorTestNum="0">
+				<Mode>FVMI</Mode>
+				<Method>Parallel</Method>
+				<ForceValue>1.9V</ForceValue>
+				<Range>2uA</Range>
+				<HiClamp>2.2uA</HiClamp>
+				<LoClamp>-2.2uA</LoClamp>
+				<SampleNum>32</SampleNum>
+				<Delay>1mS</Delay>
+			</MeasureGroup>
+			<MeasureGroup sigRef="Leakage_UTP" minorTestNum="20">
+				<Mode>FVMI</Mode>
+				<Method>Parallel</Method>
+				<ForceValue>1.9V</ForceValue>
+				<Range>4.096uA</Range>
+				<HiClamp>2.2uA</HiClamp>
+				<LoClamp>-2.2uA</LoClamp>
+				<SampleNum>1024</SampleNum>
+				<Delay>5mS</Delay>
+			</MeasureGroup>
+		</DCMeasure>
+		<DCMeasure name="OS_VDD">
+			<MeasureGroup sigRef="OS_VDD" minorTestNum="0">
+				<Mode>FIMV</Mode>
+				<Method>Parallel</Method>
+				<ForceValue>100uA</ForceValue>
+				<Range>200uA</Range>
+				<HiClamp>2V</HiClamp>
+				<LoClamp>-2V</LoClamp>
+				<SampleNum>32</SampleNum>
+				<Delay>5mS</Delay>
+			</MeasureGroup>
+		</DCMeasure>
+		<DCMeasure name="OS_VSS">
+			<MeasureGroup sigRef="AllPMU" minorTestNum="0">
+				<Mode>FIMV</Mode>
+				<Method>Parallel</Method>
+				<ForceValue>-100uA</ForceValue>
+				<Range>200uA</Range>
+				<HiClamp>2V</HiClamp>
+				<LoClamp>-2V</LoClamp>
+				<SampleNum>32</SampleNum>
+				<Delay>50mS</Delay>
+			</MeasureGroup>
+			<MeasureGroup sigRef="ALLUTP" minorTestNum="50">
+				<Mode>FIMV</Mode>
+				<Method>Parallel</Method>
+				<ForceValue>-100uA</ForceValue>
+				<Range>409.6uA</Range>
+				<HiClamp>2V</HiClamp>
+				<LoClamp>-2V</LoClamp>
+				<SampleNum>32</SampleNum>
+				<Delay>5mS</Delay>
+			</MeasureGroup>
+		</DCMeasure>
+		<DCMeasure name="PowerShort">
+			<MeasureGroup sigRef="AllDPS" minorTestNum="0">
+				<Mode>FIMV</Mode>
+				<Method>Parallel</Method>
+				<ForceValue>-100uA</ForceValue>
+				<Range>256uA</Range>
+				<HiClamp>2V</HiClamp>
+				<LoClamp>-2V</LoClamp>
+				<SampleNum>1024</SampleNum>
+				<Delay>50mS</Delay>
+			</MeasureGroup>
+		</DCMeasure>
+	</DCMeasures>
+	<TestConditions>
+		<TestCondition name="OS_VSS">
+			<LevelRef>PowerOff</LevelRef>
+		</TestCondition>
+		<TestCondition name="OS_VDD"/>
+		<TestCondition name="IIL">
+			<LevelRef>PowerOn</LevelRef>
+		</TestCondition>
+		<TestCondition name="IIH"/>
+		<TestCondition name="IDD_Active">
+			<LevelRef>IDD</LevelRef>
+		</TestCondition>
+		<TestCondition name="IDD_StandBy"/>
+		<TestCondition name="IDD_ShutDown"/>
+		<TestCondition name="Dark_DPCOn">
+			<LevelRef>ShutDownVterm</LevelRef>
+		</TestCondition>
+		<TestCondition name="Light">
+			<LevelRef>ImageVterm</LevelRef>
+		</TestCondition>
+		<TestCondition name="IIC">
+			<LevelRef>General</LevelRef>
+		</TestCondition>
+		<TestCondition name="GetTestResult"/>
+		<TestCondition name="Temp"/>
+		<TestCondition name="PowerShort"/>
+		<TestCondition name="Dark_DPCOff">
+			<LevelRef>Dark</LevelRef>
+		</TestCondition>
+		<TestCondition name="FWC"/>
+		<TestCondition name="DarkFPN"/>
+		<TestCondition name="PRNU"/>
+		<TestCondition name="CG"/>
+		<TestCondition name="test_demo"/>
+		<TestCondition name="test"/>
+		<TestCondition name="TempNoise"/>
+		<TestCondition name="DarkCurrent"/>
+	</TestConditions>
+	<Tests>
+		<Test name="OS_VSS" testNum="100">
+			<TestCondition>OS_VSS</TestCondition>
+			<ExecAPI>test_function\OS_VSS</ExecAPI>
+			<Param name="DCMeasure">
+				<Value>OS_VSS</Value>
+			</Param>
+		</Test>
+		<Test name="PowerShort" testNum="250">
+			<TestCondition>PowerShort</TestCondition>
+			<ExecAPI>test_function\PowerShort</ExecAPI>
+		</Test>
+		<Test name="OS_VDD" testNum="200">
+			<TestCondition>OS_VDD</TestCondition>
+			<ExecAPI>test_function\OS_VDD</ExecAPI>
+			<Param name="DCMeasure">
+				<Value>OS_VDD</Value>
+			</Param>
+		</Test>
+		<Test name="FWC" testNum="5000">
+			<TestCondition>FWC</TestCondition>
+			<ExecAPI>test_function\FWC</ExecAPI>
+		</Test>
+		<Test name="Light" testNum="2400">
+			<TestCondition>Light</TestCondition>
+			<ExecAPI>test_function\Light</ExecAPI>
+		</Test>
+		<Test name="IIC" testNum="1000">
+			<TestCondition>IIC</TestCondition>
+			<ExecAPI>test_function\IIC</ExecAPI>
+		</Test>
+		<Test name="GetTestResult" testNum="1200">
+			<TestCondition>GetTestResult</TestCondition>
+			<ExecAPI>test_function\GetTestResult</ExecAPI>
+		</Test>
+		<Test name="Temp" testNum="2000">
+			<TestCondition>Temp</TestCondition>
+			<ExecAPI>test_function\Temp</ExecAPI>
+		</Test>
+		<Test name="test_demo" testNum="100000">
+			<TestCondition>test_demo</TestCondition>
+			<ExecAPI>test_function\test_demo</ExecAPI>
+		</Test>
+		<Test name="DarkCurrent" testNum="6000">
+			<TestCondition>DarkCurrent</TestCondition>
+			<ExecAPI>test_function\DarkCurrent</ExecAPI>
+		</Test>
+		<Test name="CG" testNum="5100">
+			<TestCondition>CG</TestCondition>
+			<ExecAPI>test_function\CG</ExecAPI>
+		</Test>
+		<Test name="DarkFPN" testNum="2300">
+			<TestCondition>DarkFPN</TestCondition>
+			<ExecAPI>test_function\DarkFPN</ExecAPI>
+		</Test>
+		<Test name="TempNoise" testNum="2250">
+			<TestCondition>TempNoise</TestCondition>
+			<ExecAPI>test_function\TempNoise</ExecAPI>
+		</Test>
+		<Test name="Dark_DPCOff" testNum="2200">
+			<TestCondition>Dark_DPCOff</TestCondition>
+			<ExecAPI>test_function\Dark_DPCOff</ExecAPI>
+		</Test>
+		<Test name="Dark_DPCOn" testNum="2000">
+			<TestCondition>Dark_DPCOn</TestCondition>
+			<ExecAPI>test_function\Dark_DPCOn</ExecAPI>
+		</Test>
+		<Test name="IDD_ShutDown" testNum="700">
+			<TestCondition>IDD_ShutDown</TestCondition>
+			<ExecAPI>test_function\IDD_ShutDown</ExecAPI>
+		</Test>
+		<Test name="IDD_StandBy" testNum="600">
+			<TestCondition>IDD_StandBy</TestCondition>
+			<ExecAPI>test_function\IDD_StandBy</ExecAPI>
+		</Test>
+		<Test name="IDD_Active" testNum="500">
+			<TestCondition>IDD_Active</TestCondition>
+			<ExecAPI>test_function\IDD_Active</ExecAPI>
+		</Test>
+		<Test name="IIH" testNum="400">
+			<TestCondition>IIH</TestCondition>
+			<ExecAPI>test_function\IIH</ExecAPI>
+		</Test>
+		<Test name="IIL" testNum="300">
+			<TestCondition>IIL</TestCondition>
+			<ExecAPI>test_function\IIL</ExecAPI>
+		</Test>
+		<Test name="LoadAllPats" testNum="0">
+			<TestCondition>LoadAllPats</TestCondition>
+			<ExecAPI>test_template\Init\PatternLoader</ExecAPI>
+		</Test>
+		<Test name="PRNU" testNum="3000">
+			<TestCondition>PRNU</TestCondition>
+			<ExecAPI>test_function\PRNU</ExecAPI>
+		</Test>
+		<Test name="test" testNum="0">
+			<TestCondition>test</TestCondition>
+			<ExecAPI>test_function\functional\test</ExecAPI>
+		</Test>
+		<Test name="InstrumentInit" testNum="0">
+			<TestCondition>InstrumentInit</TestCondition>
+			<ExecAPI>test_template\Init\InstrumentInit</ExecAPI>
+			<Param name="LoadCalibration">
+				<Value>1</Value>
+			</Param>
+		</Test>
+	</Tests>
+</Blocks>

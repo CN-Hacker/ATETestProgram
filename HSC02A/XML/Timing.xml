@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Blocks ProjectXmlVersion="">
+	<Timing name="DefaultName0">
+		<Domain name="default">
+			<DataRate>1</DataRate>
+			<PeriodTable>
+				<Period name="per0">0</Period>
+			</PeriodTable>
+			<SigRef name="ALLUTP">
+				<WaveformTable name="seq1">
+					<WFC name="0" MdrCycle="1">
+						<Event name="D" time="0"/>
+					</WFC>
+					<WFC name="1" MdrCycle="1">
+						<Event name="U" time="0"/>
+					</WFC>
+					<WFC name="L" MdrCycle="1">
+						<Event name="L" time="0"/>
+					</WFC>
+					<WFC name="H" MdrCycle="1">
+						<Event name="H" time="0"/>
+					</WFC>
+					<WFC name="X" MdrCycle="1">
+						<Event name="X" time="0"/>
+					</WFC>
+				</WaveformTable>
+			</SigRef>
+		</Domain>
+	</Timing>
+</Blocks>

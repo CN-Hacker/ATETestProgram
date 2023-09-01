@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Blocks ProjectXmlVersion="">
+	<Flow name="INSTALL_FLOW">
+		<FlowItem name="START">
+			<Type>Entrance</Type>
+			<Goto result="0">
+				<FlowItemRef>LoadAllPats</FlowItemRef>
+				<PassFail>Pass</PassFail>
+			</Goto>
+		</FlowItem>
+		<FlowItem name="END">
+			<Type>Exit</Type>
+		</FlowItem>
+		<FlowItem name="LoadAllPats">
+			<Type>Test</Type>
+			<TestRef>LoadAllPats</TestRef>
+			<Goto result="0">
+				<FlowItemRef>END</FlowItemRef>
+				<PassFail>Pass</PassFail>
+			</Goto>
+			<Goto result="1">
+				<FlowItemRef>END</FlowItemRef>
+				<PassFail>Fail</PassFail>
+			</Goto>
+		</FlowItem>
+	</Flow>
+	<Flow name="INIT_FLOW">
+		<FlowItem name="START">
+			<Type>Entrance</Type>
+			<Goto result="0">
+				<FlowItemRef>InstrumentInit</FlowItemRef>
+				<PassFail>Pass</PassFail>
+			</Goto>
+		</FlowItem>
+		<FlowItem name="InstrumentInit">
+			<Type>Test</Type>
+			<TestRef>InstrumentInit</TestRef>
+			<Goto result="0">
+				<FlowItemRef>END</FlowItemRef>
+				<PassFail>Pass</PassFail>
+			</Goto>
+		</FlowItem>
+		<FlowItem name="END">
+			<Type>Exit</Type>
+		</FlowItem>
+	</Flow>
+	<Flow name="MAIN_FLOW">
+		<FlowItem name="START">
+			<Type>Entrance</Type>
+			<Goto result="0">
+				<SoftBinRef binRef="Default" group="SoftBins">1</SoftBinRef>
+				<FlowItemRef>OS_VSS</FlowItemRef>
+				<PassFail>Pass</PassFail>
+			</Goto>
+		</FlowItem>
+		<FlowItem name="END">
+			<Type>Exit</Type>
+		</FlowItem>
+		<FlowItem name="OS_VSS" flag="FailContinue">
+			<Type>Test</Type>
+			<TestRef>OS_VSS</TestRef>
+			<Goto result="0">
+				<FlowItemRef>PowerShort</FlowItemRef>
+				<PassFail>Pass</PassFail>
+			</Goto>
+			<Goto result="1">
+				<SoftBinRef binRef="Default" group="SoftBins">2</SoftBinRef>
+				<FlowItemRef>END</FlowItemRef>
+				<PassFail>Fail</PassFail>
+			</Goto>
+		</FlowItem>
+		<FlowItem name="IDD_Active" flag="FailContinue">
+			<Type>Test</Type>
+			<TestRef>IDD_Active</TestRef>
+			<Goto result="0">
+				<FlowItemRef>Dark_DPCOn</FlowItemRef>
+				<PassFail>Pass</PassFail>
+			</Goto>
+			<Goto result="1">
+				<SoftBinRef binRef="Default" group="SoftBins">13</SoftBinRef>
+				<FlowItemRef>END</FlowItemRef>
+				<PassFail>Fail</PassFail>
+			</Goto>
+		</FlowItem>
+		<FlowItem name="IIL" flag="FailContinue">
+			<Type>Test</Type>
+			<TestRef>IIL</TestRef>
+			<Goto result="0">
+				<FlowItemRef>IIH</FlowItemRef>
+				<PassFail>Pass</PassFail>
+			</Goto>
+			<Goto result="1">
+				<SoftBinRef binRef="Default" group="SoftBins">31</SoftBinRef>
+				<FlowItemRef>END</FlowItemRef>
+				<PassFail>Fail</PassFail>
+			</Goto>
+		</FlowItem>
+		<FlowItem name="IIH" flag="FailContinue">
+			<Type>Test</Type>
+			<TestRef>IIH</TestRef>
+			<Goto result="0">
+				<FlowItemRef>IIC</FlowItemRef>
+				<PassFail>Pass</PassFail>
+			</Goto>
+			<Goto result="1">
+				<SoftBinRef binRef="Default" group="SoftBins">30</SoftBinRef>
+				<FlowItemRef>END</FlowItemRef>
+				<PassFail>Fail</PassFail>
+			</Goto>
+		</FlowItem>
+		<FlowItem name="Dark_DPCOff" flag="FailContinue">
+			<Type>Test</Type>
+			<TestRef>Dark_DPCOff</TestRef>
+			<Goto result="0">
+				<FlowItemRef>DarkCurrent</FlowItemRef>
+				<PassFail>Pass</PassFail>
+			</Goto>
+			<Goto result="1">
+				<SoftBinRef binRef="Default" group="SoftBins">795</SoftBinRef>
+				<FlowItemRef>END</FlowItemRef>
+				<PassFail>Fail</PassFail>
+			</Goto>
+		</FlowItem>
+		<FlowItem name="Light" flag="FailContinue">
+			<Type>Test</Type>
+			<TestRef>Light</TestRef>
+			<Goto result="0">
+				<FlowItemRef>FWC</FlowItemRef>
+				<PassFail>Pass</PassFail>
+			</Goto>
+			<Goto result="1">
+				<SoftBinRef binRef="Default" group="SoftBins">795</SoftBinRef>
+				<FlowItemRef>END</FlowItemRef>
+				<PassFail>Fail</PassFail>
+			</Goto>
+		</FlowItem>
+		<FlowItem name="IIC" flag="FailContinue">
+			<Type>Test</Type>
+			<TestRef>IIC</TestRef>
+			<Goto result="0">
+				<FlowItemRef>IDD_Active</FlowItemRef>
+				<PassFail>Pass</PassFail>
+			</Goto>
+			<Goto result="1">
+				<SoftBinRef binRef="Default" group="SoftBins">5</SoftBinRef>
+				<FlowItemRef>END</FlowItemRef>
+				<PassFail>Fail</PassFail>
+			</Goto>
+		</FlowItem>
+		<FlowItem name="GetTestResult" flag="FailContinue">
+			<Type>Test</Type>
+			<TestRef>GetTestResult</TestRef>
+			<Goto result="0">
+				<FlowItemRef>END</FlowItemRef>
+				<PassFail>Pass</PassFail>
+			</Goto>
+			<Goto result="1">
+				<FlowItemRef>END</FlowItemRef>
+				<PassFail>Fail</PassFail>
+			</Goto>
+		</FlowItem>
+		<FlowItem name="OS_VDD" flag="FailContinue">
+			<Type>Test</Type>
+			<TestRef>OS_VDD</TestRef>
+			<Goto result="0">
+				<FlowItemRef>IIL</FlowItemRef>
+				<PassFail>Pass</PassFail>
+			</Goto>
+			<Goto result="1">
+				<SoftBinRef binRef="Default" group="SoftBins">2</SoftBinRef>
+				<FlowItemRef>END</FlowItemRef>
+				<PassFail>Fail</PassFail>
+			</Goto>
+		</FlowItem>
+		<FlowItem name="PowerShort" flag="FailContinue">
+			<Type>Test</Type>
+			<TestRef>PowerShort</TestRef>
+			<Goto result="0">
+				<FlowItemRef>OS_VDD</FlowItemRef>
+				<PassFail>Pass</PassFail>
+			</Goto>
+			<Goto result="1">
+				<SoftBinRef binRef="Default" group="SoftBins">4</SoftBinRef>
+				<FlowItemRef>END</FlowItemRef>
+				<PassFail>Fail</PassFail>
+			</Goto>
+		</FlowItem>
+		<FlowItem name="Dark_DPCOn" flag="FailContinue">
+			<Type>Test</Type>
+			<TestRef>Dark_DPCOn</TestRef>
+			<Goto result="0">
+				<FlowItemRef>Dark_DPCOff</FlowItemRef>
+				<PassFail>Pass</PassFail>
+			</Goto>
+			<Goto result="1">
+				<SoftBinRef binRef="Default" group="SoftBins">795</SoftBinRef>
+				<FlowItemRef>END</FlowItemRef>
+				<PassFail>Fail</PassFail>
+			</Goto>
+		</FlowItem>
+		<FlowItem name="FWC" flag="FailContinue">
+			<Type>Test</Type>
+			<TestRef>FWC</TestRef>
+			<Goto result="0">
+				<FlowItemRef>PRNU</FlowItemRef>
+				<PassFail>Pass</PassFail>
+			</Goto>
+			<Goto result="1">
+				<SoftBinRef binRef="Default" group="SoftBins">795</SoftBinRef>
+				<FlowItemRef>END</FlowItemRef>
+				<PassFail>Fail</PassFail>
+			</Goto>
+		</FlowItem>
+		<FlowItem name="DarkFPN" flag="FailContinue">
+			<Type>Test</Type>
+			<TestRef>DarkFPN</TestRef>
+			<Goto result="0">
+				<FlowItemRef>Light</FlowItemRef>
+				<PassFail>Pass</PassFail>
+			</Goto>
+			<Goto result="1">
+				<SoftBinRef binRef="Default" group="SoftBins">795</SoftBinRef>
+				<FlowItemRef>END</FlowItemRef>
+				<PassFail>Fail</PassFail>
+			</Goto>
+		</FlowItem>
+		<FlowItem name="PRNU" flag="FailContinue">
+			<Type>Test</Type>
+			<TestRef>PRNU</TestRef>
+			<Goto result="0">
+				<FlowItemRef>CG</FlowItemRef>
+				<PassFail>Pass</PassFail>
+			</Goto>
+			<Goto result="1">
+				<SoftBinRef binRef="Default" group="SoftBins">795</SoftBinRef>
+				<FlowItemRef>END</FlowItemRef>
+				<PassFail>Fail</PassFail>
+			</Goto>
+		</FlowItem>
+		<FlowItem name="CG" flag="FailContinue">
+			<Type>Test</Type>
+			<TestRef>CG</TestRef>
+			<SubType templateName="">
+				<SubTypeItem>CommonTest</SubTypeItem>
+			</SubType>
+			<Goto result="0">
+				<FlowItemRef>GetTestResult</FlowItemRef>
+				<PassFail>Pass</PassFail>
+			</Goto>
+			<Goto result="1">
+				<SoftBinRef binRef="Default" group="SoftBins">795</SoftBinRef>
+				<FlowItemRef>END</FlowItemRef>
+				<PassFail>Fail</PassFail>
+			</Goto>
+		</FlowItem>
+		<FlowItem name="TempNoise">
+			<Type>Test</Type>
+			<TestRef>TempNoise</TestRef>
+			<SubType templateName="">
+				<SubTypeItem>CommonTest</SubTypeItem>
+			</SubType>
+			<Goto result="0">
+				<FlowItemRef>DarkFPN</FlowItemRef>
+				<PassFail>Pass</PassFail>
+			</Goto>
+			<Goto result="1">
+				<FlowItemRef>END</FlowItemRef>
+				<PassFail>Fail</PassFail>
+			</Goto>
+		</FlowItem>
+		<FlowItem name="DarkCurrent">
+			<Type>Test</Type>
+			<TestRef>DarkCurrent</TestRef>
+			<SubType templateName="">
+				<SubTypeItem>CommonTest</SubTypeItem>
+			</SubType>
+			<Goto result="0">
+				<FlowItemRef>TempNoise</FlowItemRef>
+				<PassFail>Pass</PassFail>
+			</Goto>
+			<Goto result="1">
+				<FlowItemRef>END</FlowItemRef>
+				<PassFail>Fail</PassFail>
+			</Goto>
+		</FlowItem>
+	</Flow>
+	<Flow name="ALARM_FLOW">
+		<FlowItem name="START">
+			<Type>Entrance</Type>
+			<Goto result="0">
+				<FlowItemRef>END</FlowItemRef>
+				<PassFail>Pass</PassFail>
+			</Goto>
+		</FlowItem>
+		<FlowItem name="END">
+			<Type>Exit</Type>
+		</FlowItem>
+	</Flow>
+	<Flow name="POWERDOWN_FLOW">
+		<FlowItem name="START">
+			<Type>Entrance</Type>
+			<Goto result="0">
+				<FlowItemRef>END</FlowItemRef>
+				<PassFail>Pass</PassFail>
+			</Goto>
+		</FlowItem>
+		<FlowItem name="END">
+			<Type>Exit</Type>
+		</FlowItem>
+	</Flow>
+</Blocks>

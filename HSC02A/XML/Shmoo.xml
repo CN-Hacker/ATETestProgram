@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Blocks>
+
+
+	<Axes>
+        <Axis name="tper_axis">
+            <Type>UserVar</Type>
+            <Target>TPer</Target>
+            <Min>10</Min>
+            <Max>50</Max>
+			<Steps>5</Steps>
+            <Algorithm>Lineal</Algorithm>
+            <Description>user axis</Description>
+        </Axis>
+        <Axis name="vdd_axis">
+    	    <Type>UserVar</Type>
+            <Target>VDDTyp</Target>
+            <Min>0.5</Min>
+            <Max>1.28</Max>
+			<Delta>0.4</Delta>
+            <Algorithm>Lineal</Algorithm>
+            <Description>spec axis</Description>
+        </Axis>      
+        <Axis name="avdd_axis">
+    	    <Type>UserVar</Type>
+            <Target>AVDDTyp</Target>
+            <Min>1.3</Min>
+            <Max>2.9</Max>
+			<Steps>2</Steps>
+            <Algorithm>Lineal</Algorithm>
+        </Axis>    
+
+        <Axis name="tperSpec_axis">
+    	    <Type>SpecVar</Type>
+            <Target>tperSpec</Target>
+            <Min>10</Min>
+            <Max>50</Max>
+			<Steps>21</Steps>
+            <Algorithm>Lineal</Algorithm>
+        </Axis> 
+        <Axis name="vddSpec_axis">
+    	    <Type>Level</Type>
+            <Target>DVDD.VPS</Target>
+            <Min>0.5</Min>
+            <Max>1.28</Max>
+			<Steps>5</Steps>
+            <Algorithm>Lineal</Algorithm>
+        </Axis> 
+        <Axis name="avddSpec_axis">
+    	    <Type>Level</Type>
+            <Target>AVDD.VPS</Target>
+            <Min>1.3</Min>
+            <Max>2.9</Max>
+			<Steps>7</Steps>
+            <Algorithm>Lineal</Algorithm>
+        </Axis> 
+
+        <!--
+        <Axis name="TPER_axis">
+    	    <Type>TimingPeriod</Type>
+            <Target>per0</Target>
+            <Min>1.3</Min>
+            <Max>2.9</Max>
+			<Steps>7</Steps>
+            <Algorithm>Lineal</Algorithm>
+        </Axis>   
+
+        <Axis name="TEDGE_axis">
+    	    <Type>TimingEdge</Type>
+            <Target>Sig1.E1</Target>
+            <Min>1.3</Min>
+            <Max>2.9</Max>
+			<Steps>7</Steps>
+            <Algorithm>Lineal</Algorithm>
+        </Axis>  
+		-->
+	</Axes>
+
+	<Shmoos>
+		<Shmoo name="shmoo1">
+			<XAxis>tper_axis</XAxis>
+			<YAxis>vddSpec_axis</YAxis>
+		</Shmoo>
+
+		<Shmoo name="shmoo2">
+			<XAxis>avddSpec_axis</XAxis>
+		</Shmoo>
+	</Shmoos>
+</Blocks>
