@@ -1,0 +1,31 @@
+﻿  stdafx.cpp
+  AlgorithmForHSC02A.cpp
+d:\hsc02a_light_roi\sourcecode\algorithmforhsc02a20230424\algorithmforhsc02a\algorithmforhsc02a.cpp(284): warning C4101: “e”: 未引用的局部变量
+d:\hsc02a_light_roi\sourcecode\algorithmforhsc02a20230424\algorithmforhsc02a\algorithmforhsc02a.cpp(347): warning C4101: “e”: 未引用的局部变量
+d:\hsc02a_light_roi\sourcecode\algorithmforhsc02a20230424\algorithmforhsc02a\algorithmforhsc02a.cpp(403): warning C4101: “e”: 未引用的局部变量
+d:\hsc02a_light_roi\sourcecode\algorithmforhsc02a20230424\algorithmforhsc02a\algorithmforhsc02a.cpp(639): warning C4101: “e”: 未引用的局部变量
+d:\hsc02a_light_roi\sourcecode\algorithmforhsc02a20230424\algorithmforhsc02a\algorithmforhsc02a.cpp(793): warning C4101: “e”: 未引用的局部变量
+d:\hsc02a_light_roi\sourcecode\algorithmforhsc02a20230424\algorithmforhsc02a\algorithmforhsc02a.cpp(862): warning C4101: “e”: 未引用的局部变量
+d:\hsc02a_light_roi\sourcecode\algorithmforhsc02a20230424\algorithmforhsc02a\algorithmforhsc02a.cpp(977): warning C4101: “e”: 未引用的局部变量
+d:\hsc02a_light_roi\sourcecode\algorithmforhsc02a20230424\algorithmforhsc02a\algorithmforhsc02a.cpp(1085): warning C4018: “<”: 有符号/无符号不匹配
+d:\hsc02a_light_roi\sourcecode\algorithmforhsc02a20230424\algorithmforhsc02a\algorithmforhsc02a.cpp(1087): warning C4018: “<”: 有符号/无符号不匹配
+  dllmain.cpp
+    正在创建库 D:\HSC02A_light_roi\SourceCode\AlgorithmForHSC02A20230424\x64\Release\AlgorithmForHSC02A.lib 和对象 D:\HSC02A_light_roi\SourceCode\AlgorithmForHSC02A20230424\x64\Release\AlgorithmForHSC02A.exp
+  正在生成代码
+  1262 of 1290 functions (97.8%) were compiled, the rest were copied from previous compilation.
+    36 functions were new in current compilation
+    6 functions had inline decision re-evaluated but remain unchanged
+  已完成代码的生成
+  AlgorithmForHSC02A.vcxproj -> D:\HSC02A_light_roi\SourceCode\AlgorithmForHSC02A20230424\x64\Release\AlgorithmForHSC02A.dll
+  D:\HSC02A_light_roi\SourceCode\AlgorithmForHSC02A20230424\AlgorithmForHSC02A\depend\algorithm\x64\Release\HSC02_Image_Algorithm.dll
+  D:\HSC02A_light_roi\SourceCode\AlgorithmForHSC02A20230424\AlgorithmForHSC02A\depend\algorithm\x64\Release\ImgDecLib.dll
+  D:\HSC02A_light_roi\SourceCode\AlgorithmForHSC02A20230424\AlgorithmForHSC02A\depend\algorithm\x64\Release\libfftw3-3.dll
+  D:\HSC02A_light_roi\SourceCode\AlgorithmForHSC02A20230424\AlgorithmForHSC02A\depend\algorithm\x64\Release\libfftw3f-3.dll
+  D:\HSC02A_light_roi\SourceCode\AlgorithmForHSC02A20230424\AlgorithmForHSC02A\depend\algorithm\x64\Release\libfftw3l-3.dll
+  D:\HSC02A_light_roi\SourceCode\AlgorithmForHSC02A20230424\AlgorithmForHSC02A\depend\algorithm\x64\Release\opencv_ffmpeg401_64.dll
+  D:\HSC02A_light_roi\SourceCode\AlgorithmForHSC02A20230424\AlgorithmForHSC02A\depend\algorithm\x64\Release\opencv_world401.dll
+  复制了 7 个文件
+  D:\HSC02A_light_roi\SourceCode\AlgorithmForHSC02A20230424\AlgorithmForHSC02A\AlgConfig.ini
+  复制了 1 个文件
+  D:\HSC02A_light_roi\SourceCode\AlgorithmForHSC02A20230424\AlgorithmForHSC02A\ImageResultDefine.h
+  复制了 1 个文件
