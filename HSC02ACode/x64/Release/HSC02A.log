@@ -1,0 +1,195 @@
+﻿  stdafx.cpp
+  dllmain.cpp
+  HSC02A.cpp
+c:\evtsdk\everest\include\testexec\evtatelib\evtspecinterface.h(83): warning C4251: “EvtSpecInterface::m_mapSpecName2SpecInterface”: class“std::map<std::string,EvtSpecInterface *,std::less<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>”需要有 dll 接口由 class“EvtSpecInterface”的客户端使用
+          with
+          [
+              _Kty=std::string,
+              _Ty=EvtSpecInterface *
+          ]
+  c:\evtsdk\everest\include\testexec\evtatelib\evtspecinterface.h(83): note: 参见“std::map<std::string,EvtSpecInterface *,std::less<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>”的声明
+          with
+          [
+              _Kty=std::string,
+              _Ty=EvtSpecInterface *
+          ]
+c:\evtsdk\everest\include\testexec\evtatelib\evtate.h(656): warning C4251: “EvtATE::m_mutexTiming”: class“std::recursive_mutex”需要有 dll 接口由 class“EvtATE”的客户端使用
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.16.27023\include\mutex(95): note: 参见“std::recursive_mutex”的声明
+c:\evtsdk\everest\include\testexec\evtatelib\evtate.h(658): warning C4251: “EvtATE::m_ptrInstance”: class“std::shared_ptr<EvtATE>”需要有 dll 接口由 class“EvtATE”的客户端使用
+  c:\evtsdk\everest\include\testexec\evtatelib\evtate.h(658): note: 参见“std::shared_ptr<EvtATE>”的声明
+c:\evtsdk\everest\include\testexec\evtatelib\evtate.h(661): warning C4251: “EvtATE::m_mapTimingName2Timing”: class“std::map<std::string,EvtTimingInterface *,EVEREST::CaseInsensitiveCmp,std::allocator<std::pair<const _Kty,_Ty>>>”需要有 dll 接口由 class“EvtATE”的客户端使用
+          with
+          [
+              _Kty=std::string,
+              _Ty=EvtTimingInterface *
+          ]
+  c:\evtsdk\everest\include\testexec\evtatelib\evtate.h(661): note: 参见“std::map<std::string,EvtTimingInterface *,EVEREST::CaseInsensitiveCmp,std::allocator<std::pair<const _Kty,_Ty>>>”的声明
+          with
+          [
+              _Kty=std::string,
+              _Ty=EvtTimingInterface *
+          ]
+c:\evtsdk\everest\include\testexec\evtatelib\evtate.h(663): warning C4251: “EvtATE::m_mapNum2TCSetup”: class“std::unordered_map<uint32_t,void *,std::hash<_Kty>,std::equal_to<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>”需要有 dll 接口由 class“EvtATE”的客户端使用
+          with
+          [
+              _Kty=uint32_t,
+              _Ty=void *
+          ]
+  c:\evtsdk\everest\include\testexec\evtatelib\evtate.h(663): note: 参见“std::unordered_map<uint32_t,void *,std::hash<_Kty>,std::equal_to<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>”的声明
+          with
+          [
+              _Kty=uint32_t,
+              _Ty=void *
+          ]
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2311): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2322): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2332): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2352): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2353): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2354): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2355): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2356): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2357): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2358): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2359): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2360): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2361): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2362): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2363): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2364): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2365): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2366): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2367): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2368): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2369): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2370): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2386): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2387): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2455): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2456): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2457): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2458): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2469): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2470): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2471): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2472): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2482): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2483): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2484): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2485): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2495): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2496): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2497): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2498): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2646): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2647): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2648): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2649): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2650): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2651): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2652): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2653): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2654): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2655): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2656): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2657): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2658): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2659): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2660): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2661): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2662): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2663): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2664): warning C4244: “参数”: 从“size_t”转换到“double”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2942): warning C4305: “参数”: 从“int”到“unsigned short”截断
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\hsc02a.cpp(2942): warning C4309: “参数”: 截断常量值
+  LedCal.cpp
+c:\evtsdk\everest\include\testexec\evtatelib\evtspecinterface.h(83): warning C4251: “EvtSpecInterface::m_mapSpecName2SpecInterface”: class“std::map<std::string,EvtSpecInterface *,std::less<Key>,std::allocator<std::pair<const _Kty,_Ty>>>”需要有 dll 接口由 class“EvtSpecInterface”的客户端使用
+          with
+          [
+              Key=std::string,
+              _Kty=std::string,
+              _Ty=EvtSpecInterface *
+          ]
+  c:\evtsdk\everest\include\testexec\evtatelib\evtspecinterface.h(83): note: 参见“std::map<std::string,EvtSpecInterface *,std::less<Key>,std::allocator<std::pair<const _Kty,_Ty>>>”的声明
+          with
+          [
+              Key=std::string,
+              _Kty=std::string,
+              _Ty=EvtSpecInterface *
+          ]
+c:\evtsdk\everest\include\testexec\evtatelib\evtate.h(656): warning C4251: “EvtATE::m_mutexTiming”: class“std::recursive_mutex”需要有 dll 接口由 class“EvtATE”的客户端使用
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.16.27023\include\mutex(95): note: 参见“std::recursive_mutex”的声明
+c:\evtsdk\everest\include\testexec\evtatelib\evtate.h(658): warning C4251: “EvtATE::m_ptrInstance”: class“std::shared_ptr<EvtATE>”需要有 dll 接口由 class“EvtATE”的客户端使用
+  c:\evtsdk\everest\include\testexec\evtatelib\evtate.h(658): note: 参见“std::shared_ptr<EvtATE>”的声明
+c:\evtsdk\everest\include\testexec\evtatelib\evtate.h(661): warning C4251: “EvtATE::m_mapTimingName2Timing”: class“std::map<std::string,EvtTimingInterface *,EVEREST::CaseInsensitiveCmp,std::allocator<std::pair<const _Kty,_Ty>>>”需要有 dll 接口由 class“EvtATE”的客户端使用
+          with
+          [
+              _Kty=std::string,
+              _Ty=EvtTimingInterface *
+          ]
+  c:\evtsdk\everest\include\testexec\evtatelib\evtate.h(661): note: 参见“std::map<std::string,EvtTimingInterface *,EVEREST::CaseInsensitiveCmp,std::allocator<std::pair<const _Kty,_Ty>>>”的声明
+          with
+          [
+              _Kty=std::string,
+              _Ty=EvtTimingInterface *
+          ]
+c:\evtsdk\everest\include\testexec\evtatelib\evtate.h(663): warning C4251: “EvtATE::m_mapNum2TCSetup”: class“std::unordered_map<uint32_t,void *,std::hash<_Kty>,std::equal_to<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>”需要有 dll 接口由 class“EvtATE”的客户端使用
+          with
+          [
+              _Kty=uint32_t,
+              _Ty=void *
+          ]
+  c:\evtsdk\everest\include\testexec\evtatelib\evtate.h(663): note: 参见“std::unordered_map<uint32_t,void *,std::hash<_Kty>,std::equal_to<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>”的声明
+          with
+          [
+              _Kty=uint32_t,
+              _Ty=void *
+          ]
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\ledcal.cpp(466): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+d:\addfunction\sourcecode\hsc02a20230425\hsc02a\hsc02a\ledcal.cpp(595): warning C4244: “初始化”: 从“__int64”转换到“int”，可能丢失数据
+  LedCtr.cpp
+c:\evtsdk\everest\include\testexec\evtatelib\evtspecinterface.h(83): warning C4251: “EvtSpecInterface::m_mapSpecName2SpecInterface”: class“std::map<std::string,EvtSpecInterface *,std::less<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>”需要有 dll 接口由 class“EvtSpecInterface”的客户端使用
+          with
+          [
+              _Kty=std::string,
+              _Ty=EvtSpecInterface *
+          ]
+  c:\evtsdk\everest\include\testexec\evtatelib\evtspecinterface.h(83): note: 参见“std::map<std::string,EvtSpecInterface *,std::less<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>”的声明
+          with
+          [
+              _Kty=std::string,
+              _Ty=EvtSpecInterface *
+          ]
+c:\evtsdk\everest\include\testexec\evtatelib\evtate.h(656): warning C4251: “EvtATE::m_mutexTiming”: class“std::recursive_mutex”需要有 dll 接口由 class“EvtATE”的客户端使用
+  c:\program files (x86)\microsoft visual studio\2017\enterprise\vc\tools\msvc\14.16.27023\include\mutex(95): note: 参见“std::recursive_mutex”的声明
+c:\evtsdk\everest\include\testexec\evtatelib\evtate.h(658): warning C4251: “EvtATE::m_ptrInstance”: class“std::shared_ptr<EvtATE>”需要有 dll 接口由 class“EvtATE”的客户端使用
+  c:\evtsdk\everest\include\testexec\evtatelib\evtate.h(658): note: 参见“std::shared_ptr<EvtATE>”的声明
+c:\evtsdk\everest\include\testexec\evtatelib\evtate.h(661): warning C4251: “EvtATE::m_mapTimingName2Timing”: class“std::map<std::string,EvtTimingInterface *,EVEREST::CaseInsensitiveCmp,std::allocator<std::pair<const _Kty,_Ty>>>”需要有 dll 接口由 class“EvtATE”的客户端使用
+          with
+          [
+              _Kty=std::string,
+              _Ty=EvtTimingInterface *
+          ]
+  c:\evtsdk\everest\include\testexec\evtatelib\evtate.h(661): note: 参见“std::map<std::string,EvtTimingInterface *,EVEREST::CaseInsensitiveCmp,std::allocator<std::pair<const _Kty,_Ty>>>”的声明
+          with
+          [
+              _Kty=std::string,
+              _Ty=EvtTimingInterface *
+          ]
+c:\evtsdk\everest\include\testexec\evtatelib\evtate.h(663): warning C4251: “EvtATE::m_mapNum2TCSetup”: class“std::unordered_map<uint32_t,void *,std::hash<_Kty>,std::equal_to<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>”需要有 dll 接口由 class“EvtATE”的客户端使用
+          with
+          [
+              _Kty=uint32_t,
+              _Ty=void *
+          ]
+  c:\evtsdk\everest\include\testexec\evtatelib\evtate.h(663): note: 参见“std::unordered_map<uint32_t,void *,std::hash<_Kty>,std::equal_to<_Kty>,std::allocator<std::pair<const _Kty,_Ty>>>”的声明
+          with
+          [
+              _Kty=uint32_t,
+              _Ty=void *
+          ]
+    正在创建库 D:\AddFunction\SourceCode\HSC02A20230425\HSC02A\x64\Release\HSC02A.lib 和对象 D:\AddFunction\SourceCode\HSC02A20230425\HSC02A\x64\Release\HSC02A.exp
+  正在生成代码
+  All 2724 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  已完成代码的生成
+  HSC02A.vcxproj -> D:\AddFunction\SourceCode\HSC02A20230425\HSC02A\x64\Release\HSC02A.dll
