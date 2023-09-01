@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Blocks>
+	<ImageAddr>
+		<Site num="0">
+			<Offset>0</Offset>
+			<AddrName>EVT_SHMEM_INSTRUMENT_0_4_1</AddrName>
+		</Site>
+		<Site num="1">
+			<Offset>0x2000000</Offset>
+			<AddrName>EVT_SHMEM_INSTRUMENT_0_4_1</AddrName>
+		</Site>
+		<Site num="2">
+			<Offset>0</Offset>
+			<AddrName>EVT_SHMEM_INSTRUMENT_0_5_1</AddrName>
+		</Site>
+		<Site num="3">
+			<Offset>0x2000000</Offset>
+			<AddrName>EVT_SHMEM_INSTRUMENT_0_5_1</AddrName>
+		</Site>
+		<Site num="4">
+			<Offset>0</Offset>
+			<AddrName>EVT_SHMEM_INSTRUMENT_0_1_1</AddrName>
+		</Site>
+		<Site num="5">
+			<Offset>0x2000000</Offset>
+			<AddrName>EVT_SHMEM_INSTRUMENT_0_1_1</AddrName>
+		</Site>
+		<Site num="6">
+			<Offset>0</Offset>
+			<AddrName>EVT_SHMEM_INSTRUMENT_0_0_1</AddrName>
+		</Site>
+		<Site num="7">
+			<Offset>0x2000000</Offset>
+			<AddrName>EVT_SHMEM_INSTRUMENT_0_0_1</AddrName>
+		</Site>
+		<Site num="8">
+			<Offset>0</Offset>
+			<AddrName>EVT_SHMEM_INSTRUMENT_0_5_0</AddrName>
+		</Site>
+		<Site num="9">
+			<Offset>0x2000000</Offset>
+			<AddrName>EVT_SHMEM_INSTRUMENT_0_5_0</AddrName>
+		</Site>
+		<Site num="10">
+			<Offset>0</Offset>
+			<AddrName>EVT_SHMEM_INSTRUMENT_0_4_0</AddrName>
+		</Site>
+		<Site num="11">
+			<Offset>0x2000000</Offset>
+			<AddrName>EVT_SHMEM_INSTRUMENT_0_4_0</AddrName>
+		</Site>
+		<Site num="12">
+			<Offset>0</Offset>
+			<AddrName>EVT_SHMEM_INSTRUMENT_0_0_0</AddrName>
+		</Site>
+		<Site num="13">
+			<Offset>0x2000000</Offset>
+			<AddrName>EVT_SHMEM_INSTRUMENT_0_0_0</AddrName>
+		</Site>
+		<Site num="14">
+			<Offset>0</Offset>
+			<AddrName>EVT_SHMEM_INSTRUMENT_0_1_0</AddrName>
+		</Site>
+		<Site num="15">
+			<Offset>0x2000000</Offset>
+			<AddrName>EVT_SHMEM_INSTRUMENT_0_1_0</AddrName>
+		</Site>
+	</ImageAddr>
+	<Algorithm module = "AlgorithmForHSC02A">
+		<TestItem name = "DarkFPN">
+			<Function>DarkFPN</Function>
+			<ImageMode>DVP</ImageMode>
+			<WaitPrevious>false</WaitPrevious>
+			<SrcFormat>BGGR</SrcFormat> 
+      			<DstFormat>GRAY</DstFormat> 
+			<SaveName>DarkFPN</SaveName> 
+		</TestItem>
+		<TestItem name = "Dark_DPCOn">
+			<Function>Dark_DPCOn</Function>
+			<ImageMode>DVP</ImageMode>
+			<WaitPrevious>false</WaitPrevious>
+			<SrcFormat>BGGR</SrcFormat> 
+      			<DstFormat>GRAY</DstFormat> 
+			<SaveName>Dark_DPCOn</SaveName> 
+		</TestItem>	
+		<TestItem name = "Dark_DPCOff">
+			<Function>Dark_DPCOff</Function>
+			<ImageMode>DVP</ImageMode>
+			<WaitPrevious>false</WaitPrevious>
+			<SrcFormat>BGGR</SrcFormat> 
+      			<DstFormat>GRAY</DstFormat> 
+			<SaveName>Dark_DPCOff</SaveName> 
+		</TestItem>	
+		<TestItem name = "TempNoise">
+			<Function>TempNoise</Function>
+			<ImageMode>DVP</ImageMode>
+			<WaitPrevious>false</WaitPrevious>
+			<SrcFormat>BGGR</SrcFormat> 
+      			<DstFormat>GRAY</DstFormat> 
+			<SaveName>TempNoise</SaveName> 
+		</TestItem>	
+		<TestItem name = "test_demo">
+			<Function>test_demo</Function>
+			<ImageMode>DVP</ImageMode>
+			<WaitPrevious>false</WaitPrevious>
+			<SrcFormat>BGGR</SrcFormat> 
+      			<DstFormat>GRAY</DstFormat> 
+			<SaveName>test_demo</SaveName> 
+		</TestItem>	
+		<TestItem name = "CG">
+			<Function>CG</Function>
+			<ImageMode>CALC</ImageMode>
+			<WaitPrevious>false</WaitPrevious>
+		</TestItem>
+		<TestItem name = "CG_PRNU40">
+			<Function>CG_PRNU40</Function>
+			<ImageMode>DVP</ImageMode>
+			<WaitPrevious>false</WaitPrevious>
+			<SrcFormat>BGGR</SrcFormat> 
+      			<DstFormat>GRAY</DstFormat> 
+			<SaveName>CG_PRNU40</SaveName> 
+		</TestItem>
+		<TestItem name = "CG_PRNU80">
+			<Function>CG_PRNU80</Function>
+			<ImageMode>DVP</ImageMode>
+			<WaitPrevious>false</WaitPrevious>
+			<SrcFormat>BGGR</SrcFormat> 
+      			<DstFormat>GRAY</DstFormat> 
+			<SaveName>CG_PRNU80</SaveName> 
+		</TestItem>
+		<TestItem name = "PRNU40">
+			<Function>PRNU40</Function>
+			<ImageMode>DVP</ImageMode>
+			<WaitPrevious>false</WaitPrevious>
+			<SrcFormat>BGGR</SrcFormat> 
+      			<DstFormat>GRAY</DstFormat> 
+			<SaveName>PRNU40</SaveName> 
+		</TestItem>
+		<TestItem name = "PRNU80">
+			<Function>PRNU80</Function>
+			<ImageMode>DVP</ImageMode>
+			<WaitPrevious>false</WaitPrevious>
+			<SrcFormat>BGGR</SrcFormat> 
+      			<DstFormat>GRAY</DstFormat> 
+			<SaveName>PRNU80</SaveName> 
+		</TestItem>
+		<TestItem name = "FWC">
+			<Function>FWC</Function>
+			<ImageMode>DVP</ImageMode>
+			<WaitPrevious>false</WaitPrevious>
+			<SrcFormat>BGGR</SrcFormat> 
+      			<DstFormat>GRAY</DstFormat> 
+			<SaveName>FWC</SaveName> 
+		</TestItem>
+		<TestItem name = "GetTestResult">
+			<Function>GetTestResult</Function>
+			<ImageMode>CALC</ImageMode>
+			<WaitPrevious>true</WaitPrevious>
+		</TestItem>			
+		<TestItem name = "PRNU">
+			<Function>PRNU</Function>
+			<ImageMode>CALC</ImageMode>
+			<WaitPrevious>false</WaitPrevious>
+		</TestItem>
+		<TestItem name = "DarkCurrent">
+			<Function>DarkCurrent</Function>
+			<ImageMode>CALC</ImageMode>
+			<WaitPrevious>false</WaitPrevious>
+		</TestItem>
+		<TestItem name = "DarkFrame1">
+			<Function>DarkFrame1</Function>
+			<ImageMode>DVP</ImageMode>
+			<WaitPrevious>false</WaitPrevious>
+			<SrcFormat>BGGR</SrcFormat> 
+      			<DstFormat>GRAY</DstFormat> 
+			<SaveName>DarkFrame1</SaveName> 
+		</TestItem>
+		<TestItem name = "DarkFrame2">
+			<Function>DarkFrame2</Function>
+			<ImageMode>DVP</ImageMode>
+			<WaitPrevious>false</WaitPrevious>
+			<SrcFormat>BGGR</SrcFormat> 
+      			<DstFormat>GRAY</DstFormat> 
+			<SaveName>DarkFrame2</SaveName> 
+		</TestItem>
+		<TestItem name = "Light">
+			<Function>Light</Function>
+			<ImageMode>DVP</ImageMode>
+			<WaitPrevious>false</WaitPrevious>
+			<SrcFormat>BGGR</SrcFormat> 
+      			<DstFormat>GRAY</DstFormat> 
+			<SaveName>Light</SaveName> 
+		</TestItem>
+	</Algorithm>
+	<DeviceName>HSC02A</DeviceName>
+	<MemoryThreshold>660</MemoryThreshold>
+	<SaveAndCompress>
+					<SaveDirName>$(MIR.LOT_ID)/$(MIR.LOT_ID)_$(TM.yyyyMMdd)_Site$(IQN.SiteNum)</SaveDirName>
+                	<SaveFileName>$(IQN.szTestName)_Site$(IQN.SiteNum)_Cnt$(IQN.imageCnt)_$(TM.yyyyMMddhhmmss)</SaveFileName>
+					<SaveFormat>bmp</SaveFormat>
+  	</SaveAndCompress>
+</Blocks>
