@@ -1,0 +1,33 @@
+﻿  HSC02_Image_Algorithm.cpp
+d:\addfunction\sourcecode\imagealgorithm\imagealgorithmn\imagealgorithmn\hsc02_image_algorithm.cpp(788): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\addfunction\sourcecode\imagealgorithm\imagealgorithmn\imagealgorithmn\hsc02_image_algorithm.cpp(932): warning C4018: “<”: 有符号/无符号不匹配
+d:\addfunction\sourcecode\imagealgorithm\imagealgorithmn\imagealgorithmn\hsc02_image_algorithm.cpp(934): warning C4018: “<”: 有符号/无符号不匹配
+d:\addfunction\sourcecode\imagealgorithm\imagealgorithmn\imagealgorithmn\hsc02_image_algorithm.cpp(984): warning C4018: “<”: 有符号/无符号不匹配
+d:\addfunction\sourcecode\imagealgorithm\imagealgorithmn\imagealgorithmn\hsc02_image_algorithm.cpp(986): warning C4018: “<”: 有符号/无符号不匹配
+d:\addfunction\sourcecode\imagealgorithm\imagealgorithmn\imagealgorithmn\hsc02_image_algorithm.cpp(1071): warning C4273: “DarkImageWithDPCOnTest”: dll 链接不一致
+  d:\addfunction\sourcecode\imagealgorithm\imagealgorithmn\imagealgorithmn\hsc02_image_algorithm.h(333): note: 参见“DarkImageWithDPCOnTest”的前一个定义
+d:\addfunction\sourcecode\imagealgorithm\imagealgorithmn\imagealgorithmn\hsc02_image_algorithm.cpp(1125): warning C4273: “DarkImageWithDPCOffTest”: dll 链接不一致
+  d:\addfunction\sourcecode\imagealgorithm\imagealgorithmn\imagealgorithmn\hsc02_image_algorithm.h(334): note: 参见“DarkImageWithDPCOffTest”的前一个定义
+d:\addfunction\sourcecode\imagealgorithm\imagealgorithmn\imagealgorithmn\hsc02_image_algorithm.cpp(1156): warning C4273: “DarkTmpNoise”: dll 链接不一致
+  d:\addfunction\sourcecode\imagealgorithm\imagealgorithmn\imagealgorithmn\hsc02_image_algorithm.h(335): note: 参见“DarkTmpNoise”的前一个定义
+d:\addfunction\sourcecode\imagealgorithm\imagealgorithmn\imagealgorithmn\hsc02_image_algorithm.cpp(1224): warning C4273: “DarkFPNTest”: dll 链接不一致
+  d:\addfunction\sourcecode\imagealgorithm\imagealgorithmn\imagealgorithmn\hsc02_image_algorithm.h(336): note: 参见“DarkFPNTest”的前一个定义
+d:\addfunction\sourcecode\imagealgorithm\imagealgorithmn\imagealgorithmn\hsc02_image_algorithm.cpp(1235): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\addfunction\sourcecode\imagealgorithm\imagealgorithmn\imagealgorithmn\hsc02_image_algorithm.cpp(1269): warning C4273: “TestLightImage”: dll 链接不一致
+  d:\addfunction\sourcecode\imagealgorithm\imagealgorithmn\imagealgorithmn\hsc02_image_algorithm.h(339): note: 参见“TestLightImage”的前一个定义
+d:\addfunction\sourcecode\imagealgorithm\imagealgorithmn\imagealgorithmn\hsc02_image_algorithm.cpp(1584): warning C4273: “TestRPNU”: dll 链接不一致
+  d:\addfunction\sourcecode\imagealgorithm\imagealgorithmn\imagealgorithmn\hsc02_image_algorithm.h(341): note: 参见“TestRPNU”的前一个定义
+d:\addfunction\sourcecode\imagealgorithm\imagealgorithmn\imagealgorithmn\hsc02_image_algorithm.cpp(1697): warning C4273: “TestCG”: dll 链接不一致
+  d:\addfunction\sourcecode\imagealgorithm\imagealgorithmn\imagealgorithmn\hsc02_image_algorithm.h(343): note: 参见“TestCG”的前一个定义
+d:\addfunction\sourcecode\imagealgorithm\imagealgorithmn\imagealgorithmn\hsc02_image_algorithm.cpp(1823): warning C4273: “FWCTest”: dll 链接不一致
+  d:\addfunction\sourcecode\imagealgorithm\imagealgorithmn\imagealgorithmn\hsc02_image_algorithm.h(345): note: 参见“FWCTest”的前一个定义
+d:\addfunction\sourcecode\imagealgorithm\imagealgorithmn\imagealgorithmn\hsc02_image_algorithm.cpp(1879): warning C4101: “e”: 未引用的局部变量
+d:\addfunction\sourcecode\imagealgorithm\imagealgorithmn\imagealgorithmn\hsc02_image_algorithm.cpp(1888): warning C4273: “DarkCurrentTest”: dll 链接不一致
+  d:\addfunction\sourcecode\imagealgorithm\imagealgorithmn\imagealgorithmn\hsc02_image_algorithm.h(347): note: 参见“DarkCurrentTest”的前一个定义
+    正在创建库 D:\AddFunction\SourceCode\ImageAlgorithm\imageAlgorithmn\x64\Release\HSC02_Image_Algorithm.lib 和对象 D:\AddFunction\SourceCode\ImageAlgorithm\imageAlgorithmn\x64\Release\HSC02_Image_Algorithm.exp
+  正在生成代码
+  1 of 1976 functions (<0.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  已完成代码的生成
+  imageAlgorithmn.vcxproj -> D:\AddFunction\SourceCode\ImageAlgorithm\imageAlgorithmn\x64\Release\HSC02_Image_Algorithm.dll
