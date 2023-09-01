@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Blocks>
+	<Product name = "HSC02A">
+		<TestItem name = "IIC_00">
+    			<Path>Configure\IIC_00.txt</Path>
+		</TestItem>
+		<TestItem name = "IIC_FF">
+    			<Path>Configure\IIC_FF.txt</Path>
+		</TestItem>
+		<TestItem name = "IDD_Active">
+    			<Path>Configure\IDD_active.txt</Path>
+		</TestItem>
+		<TestItem name = "Dark_DPCOn">
+    			<Path>Configure\dark_DPC_on.txt</Path>
+		</TestItem>
+		<TestItem name = "Dark_DPCOff">
+    			<Path>Configure\dark_DPC_off.txt</Path>
+		</TestItem>
+		<TestItem name = "Light">
+    			<Path>Configure\Light.txt</Path>
+		</TestItem>
+		<TestItem name = "DarkFPN">
+    			<Path>Configure\FPN.txt</Path>
+		</TestItem>
+		<TestItem name = "PRNU">
+    			<Path>Configure\PRNU.txt</Path>
+		</TestItem>
+		<TestItem name = "FWC">
+    			<Path>Configure\FWC.txt</Path>
+		</TestItem>
+	</Product>
+</Blocks>

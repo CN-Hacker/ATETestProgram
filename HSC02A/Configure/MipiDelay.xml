@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Blocks>
+    <Site SiteNum = "0" DVP_DELAY = "3000">
+	    <Lane TypeName = "2LANE" LaneCount = "2">
+	      <Speed Type = "0" Suffix = "LS">
+			    <Parameter Name = "DELAY_0"  Value = "200" />
+			    <Parameter Name = "DELAY_1"  Value = "100" />
+		    </Speed>
+        <Speed Type = "1" Suffix = "HS">
+			    <Parameter Name = "DELAY_0"  Value = "100" />
+		    </Speed>
+	    </Lane>
+    </Site>
+    <Site SiteNum = "1" DVP_DELAY = "3000">
+	    <Lane TypeName = "2LANE" LaneCount = "2">
+	      <Speed Type = "0" Suffix = "LS">
+			    <Parameter Name = "DELAY_0"  Value = "200" />
+			    <Parameter Name = "DELAY_1"  Value = "100" />
+		    </Speed>
+        <Speed Type = "1" Suffix = "HS">
+			    <Parameter Name = "DELAY_0"  Value = "100" />
+		    </Speed>
+	    </Lane>
+    </Site>
+    <Site SiteNum = "2" DVP_DELAY = "3000">
+	    <Lane TypeName = "2LANE" LaneCount = "2">
+	      <Speed Type = "0" Suffix = "LS">
+			    <Parameter Name = "DELAY_0"  Value = "200" />
+			    <Parameter Name = "DELAY_1"  Value = "100" />
+		    </Speed>
+        <Speed Type = "1" Suffix = "HS">
+			    <Parameter Name = "DELAY_0"  Value = "100" />
+		    </Speed>
+	    </Lane>
+    </Site>
+    <Site SiteNum = "3" DVP_DELAY = "2000">
+	    <Lane TypeName = "2LANE" LaneCount = "2">
+	      <Speed Type = "0" Suffix = "LS">
+			    <Parameter Name = "DELAY_0"  Value = "200" />
+			    <Parameter Name = "DELAY_1"  Value = "100" />
+		    </Speed>
+        <Speed Type = "1" Suffix = "HS">
+			    <Parameter Name = "DELAY_0"  Value = "100" />
+		    </Speed>
+	    </Lane>
+    </Site>
+    <Site SiteNum = "4" DVP_DELAY = "3000">
+	    <Lane TypeName = "2LANE" LaneCount = "2">
+	      <Speed Type = "0" Suffix = "LS">
+			    <Parameter Name = "DELAY_0"  Value = "100" />
+			    <Parameter Name = "DELAY_1"  Value = "100" />
+		    </Speed>
+        <Speed Type = "1" Suffix = "HS">
+			    <Parameter Name = "DELAY_0"  Value = "100" />
+		    </Speed>
+	    </Lane>
+    </Site>
+    <Site SiteNum = "5" DVP_DELAY = "3000">
+	    <Lane TypeName = "2LANE" LaneCount = "2">
+	      <Speed Type = "0" Suffix = "LS">
+			    <Parameter Name = "DELAY_0"  Value = "100" />
+			    <Parameter Name = "DELAY_1"  Value = "100" />
+		    </Speed>
+        <Speed Type = "1" Suffix = "HS">
+			    <Parameter Name = "DELAY_0"  Value = "100" />
+		    </Speed>
+	    </Lane>
+    </Site>
+    <Site SiteNum = "6" DVP_DELAY = "3000">
+	    <Lane TypeName = "2LANE" LaneCount = "2">
+	      <Speed Type = "0" Suffix = "LS">
+			    <Parameter Name = "DELAY_0"  Value = "100" />
+			    <Parameter Name = "DELAY_1"  Value = "100" />
+		    </Speed>
+        <Speed Type = "1" Suffix = "HS">
+			    <Parameter Name = "DELAY_0"  Value = "100" />
+		    </Speed>
+	    </Lane>
+    </Site>
+    <Site SiteNum = "7" DVP_DELAY = "3000">
+	    <Lane TypeName = "2LANE" LaneCount = "2">
+	      <Speed Type = "0" Suffix = "LS">
+			    <Parameter Name = "DELAY_0"  Value = "100" />
+			    <Parameter Name = "DELAY_1"  Value = "100" />
+		    </Speed>
+        <Speed Type = "1" Suffix = "HS">
+			    <Parameter Name = "DELAY_0"  Value = "100" />
+		    </Speed>
+	    </Lane>
+    </Site>
+    <Site SiteNum = "8" DVP_DELAY = "3000">
+	    <Lane TypeName = "2LANE" LaneCount = "2">
+	      <Speed Type = "0" Suffix = "LS">
+			    <Parameter Name = "DELAY_0"  Value = "200" />
+			    <Parameter Name = "DELAY_1"  Value = "100" />
+		    </Speed>
+        <Speed Type = "1" Suffix = "HS">
+			    <Parameter Name = "DELAY_0"  Value = "100" />
+		    </Speed>
+	    </Lane>
+    </Site>
+    <Site SiteNum = "9" DVP_DELAY = "3000">
+	    <Lane TypeName = "2LANE" LaneCount = "2">
+	      <Speed Type = "0" Suffix = "LS">
+			    <Parameter Name = "DELAY_0"  Value = "200" />
+			    <Parameter Name = "DELAY_1"  Value = "100" />
+		    </Speed>
+        <Speed Type = "1" Suffix = "HS">
+			    <Parameter Name = "DELAY_0"  Value = "100" />
+		    </Speed>
+	    </Lane>
+    </Site>
+    <Site SiteNum = "10" DVP_DELAY = "3000">
+	    <Lane TypeName = "2LANE" LaneCount = "2">
+	      <Speed Type = "0" Suffix = "LS">
+			    <Parameter Name = "DELAY_0"  Value = "100" />
+			    <Parameter Name = "DELAY_1"  Value = "100" />
+		    </Speed>
+        <Speed Type = "1" Suffix = "HS">
+			    <Parameter Name = "DELAY_0"  Value = "100" />
+		    </Speed>
+	    </Lane>
+    </Site>
+    <Site SiteNum = "11" DVP_DELAY = "3000">
+	    <Lane TypeName = "2LANE" LaneCount = "2">
+	      <Speed Type = "0" Suffix = "LS">
+			    <Parameter Name = "DELAY_0"  Value = "100" />
+			    <Parameter Name = "DELAY_1"  Value = "100" />
+		    </Speed>
+        <Speed Type = "1" Suffix = "HS">
+			    <Parameter Name = "DELAY_0"  Value = "100" />
+		    </Speed>
+	    </Lane>
+    </Site>
+    <Site SiteNum = "12" DVP_DELAY = "3000">
+	    <Lane TypeName = "2LANE" LaneCount = "2">
+	      <Speed Type = "0" Suffix = "LS">
+			    <Parameter Name = "DELAY_0"  Value = "100" />
+			    <Parameter Name = "DELAY_1"  Value = "100" />
+		    </Speed>
+        <Speed Type = "1" Suffix = "HS">
+			    <Parameter Name = "DELAY_0"  Value = "100" />
+		    </Speed>
+	    </Lane>
+    </Site>
+    <Site SiteNum = "13" DVP_DELAY = "3000">
+	    <Lane TypeName = "2LANE" LaneCount = "2">
+	      <Speed Type = "0" Suffix = "LS">
+			    <Parameter Name = "DELAY_0"  Value = "100" />
+			    <Parameter Name = "DELAY_1"  Value = "100" />
+		    </Speed>
+        <Speed Type = "1" Suffix = "HS">
+			    <Parameter Name = "DELAY_0"  Value = "100" />
+		    </Speed>
+	    </Lane>
+    </Site>
+    <Site SiteNum = "14" DVP_DELAY = "3000">
+	    <Lane TypeName = "2LANE" LaneCount = "2">
+	      <Speed Type = "0" Suffix = "LS">
+			    <Parameter Name = "DELAY_0"  Value = "200" />
+			    <Parameter Name = "DELAY_1"  Value = "100" />
+		    </Speed>
+        <Speed Type = "1" Suffix = "HS">
+			    <Parameter Name = "DELAY_0"  Value = "100" />
+		    </Speed>
+	    </Lane>
+    </Site>
+    <Site SiteNum = "15" DVP_DELAY = "3000">
+	    <Lane TypeName = "2LANE" LaneCount = "2">
+	      <Speed Type = "0" Suffix = "LS">
+			    <Parameter Name = "DELAY_0"  Value = "100" />
+			    <Parameter Name = "DELAY_1"  Value = "100" />
+		    </Speed>
+        <Speed Type = "1" Suffix = "HS">
+			    <Parameter Name = "DELAY_0"  Value = "100" />
+		    </Speed>
+	    </Lane>
+    </Site>   
+</Blocks>
