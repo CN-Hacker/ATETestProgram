@@ -1,4 +1,4 @@
 # ATETestProgram
-用于维护ATE机台测试程序的管理，
-AlgorithmForHSC02A.cpp与HSC02_Image_Algorithm.cpp文件是对算法功能的实现
-HSC02A.cpp文件是ATE机台调用算法程序和HYC_SDK，以实现测试Sensor。
+3个7z后缀文件为，当前HYC——ATE机台，测试HSC02版Sensor所用测试程序；
+AlgorithmForHSC02A.7z和imageAlgorithmn.7z文件为实现图像算法功能；
+HSC02A.7z文件为实现ATE调用机台资源与图像算法的测试。
