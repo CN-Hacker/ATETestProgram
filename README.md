@@ -19,7 +19,7 @@ ATETestProgram
   
   （1）当前可测试项：
   
-![304e427ac67732827476ff940afe7b0](https://github.com/CN-Hacker/ATETestProgram/assets/143678738/16808c8f-3ef4-4b22-a6ad-2181915a176e)
+![image](https://github.com/CN-Hacker/ATETestProgram/assets/143678738/bd20e5ad-6502-4a54-90bb-9ba504cdec20)
 
       电性能：OS_VSS、OS_VDD、PowerShort、IIL/IIH、IDD_Active
       通讯交互项：IIC
@@ -28,9 +28,9 @@ ATETestProgram
   
   （2）Configure文件集
   
-  ![image](https://github.com/CN-Hacker/ATETestProgram/assets/143678738/414c2546-53c9-420e-a884-884135c7195e)
-  
+  ![image](https://github.com/CN-Hacker/ATETestProgram/assets/143678738/6f44f1b0-cf5e-4caa-8253-1f7521d32099)
+
+
   （3）配合code设置匹配xml文件集
   
-  ![image](https://github.com/CN-Hacker/ATETestProgram/assets/143678738/fc85d29f-6ed3-40ba-b25d-8aed5212afbc)
-  
+![image](https://github.com/CN-Hacker/ATETestProgram/assets/143678738/c534382e-0d93-42af-ac5a-8993df90e4e8)
