@@ -124,7 +124,7 @@ void PRNUResultConvert(const ImgResult_PRNU& algorithmResult, PRNUResult& testpr
 
 void CGResultConvert(const ImgResult_CG& algorithmResult, CGResult& testprogramResult)
 {
-	//testprogramResult.PRNU40_R = algorithmResult.PRNU40_R;
+	
 	testprogramResult.CG_B = algorithmResult.CG_B;
 	testprogramResult.CG_R = algorithmResult.CG_R;
 	testprogramResult.CG_Gb = algorithmResult.CG_Gb;
@@ -306,7 +306,6 @@ EVT_ALG_RET Deinit()
 		delete[] g_pBuf;
 	}
 
-	
 	return ALG_SUCCESS;
 }
 
@@ -383,7 +382,6 @@ EVT_ALG_RET Dark_DPCOff(
 {
 	EVT_ALG_RET ret = ALG_SUCCESS;
 
-
 	ImageResult result;
 	strcpy_s(result.testName, "Dark_DPCOff");
 
@@ -414,7 +412,6 @@ EVT_ALG_RET Dark_DPCOff(
 		ofs.write((char*)rawData, pixelHeight * pixelWidth * 2);
 		ofs.close();
 	}
-
 
 	memcpy(result.pData, &darkImageResult, sizeof(darkImageResult));
 	gv_ImageResults.push_back(result);
@@ -537,8 +534,6 @@ EVT_ALG_RET DarkCurrent(
 	DarkCurrentTest(&ImgDarkFrame1[0], &ImgDarkFrame2[0], pixelHeight, pixelWidth, condition, &algorithmDarkCurrentResult);
 	DarkCurrentResultConvert(algorithmDarkCurrentResult, DarkCurrentImageResult);
 
-
-
 	ImageResult result;
 	strcpy_s(result.testName, "DarkCurrent");
 
@@ -566,44 +561,6 @@ EVT_ALG_RET test_demo(
 {
 	EVT_ALG_RET ret = ALG_SUCCESS;
 
-
-	////ImageResult result;
-	////strcpy_s(result.testName, "Dark_DPCOff");
-
-	////cv::Mat r_RawData;
-	////cv::Mat srcImage = cv::Mat(pixelHeight, pixelWidth, CV_16UC1, rawData);
-	////cv::Rect cvImage(0, 0, pixelWidth, pixelHeight - 80);
-	////srcImage(cvImage).copyTo(r_RawData);
-
-	//DarkImgResultWithDPCOff darkImageResult;
-	//try
-	//{
-	//	ImgCondition_Dark_DPCOff ImageCondition;
-	//	ImgResult_Dark_DPCOff algorithmDarkImageResult;
-	//	DarkImageWithDPCOffTest((unsigned short*)r_RawData.data, pixelHeight - 80, pixelWidth, ImageCondition, &algorithmDarkImageResult);
-	//	DarkWithDPCOffResultConvert(algorithmDarkImageResult, darkImageResult);
-	//}
-	//catch(cv::Exception& e)
-	//{
-	//	time_t currentTime = time(0);
-	//	tm ctm;
-	//	localtime_s(&ctm, &currentTime);
-	//	char stime[256];
-	//	memset(stime, 0, 256);
-	//	std::strftime(stime, 256, "%Y%m%d%H%M%S", &ctm);
-	//	std::string failRawName = "FailImage";
-	//	failRawName = failRawName + __FUNCDNAME__ + stime + ".raw";
-	//	std::ofstream ofs(failRawName, ios::trunc | ios::binary);
-	//	ofs.write((char*)rawData, pixelHeight * pixelWidth * 2);
-	//	ofs.close();
-	//}
-
-
-	/*memcpy(result.pData, &darkImageResult, sizeof(darkImageResult));
-	gv_ImageResults.push_back(result);*/
-
-	//bool savingStatus = false;
-	//saveCallBack(savingStatus, false, 0, nullptr);
 	return ret;
 }
 
@@ -630,7 +587,7 @@ EVT_ALG_RET DarkFPN(
 
     try
     {
-        // 将100张完成的图片放到算法中计算,在Condition中设置ROI
+        
         ImgCondition_DarkFPN condition; // frame count 100
         ImgResult_DarkFPN algorithmFPNImageResult;
         DarkFPNTest(rawData, pixelHeight, pixelWidth, condition, &algorithmFPNImageResult);
@@ -1026,8 +983,6 @@ EVT_ALG_RET  TGP_ColorBar(
 	ReadRowFile.read((char*)(g_pBuf), sizeof(unsigned short) * frameWidth * frameHeight);
 	ReadRowFile.close();
 
-	//int32_t *tempBuf = new int32_t[];
-
 	for (unsigned int i = 0; i < static_cast<unsigned int>(frameHeight * frameWidth); i++)
 	{
 		if (g_pBuf[i] != rawData[i])
@@ -1046,7 +1001,6 @@ EVT_ALG_RET  TGP_ColorBar(
 		WriteRawFile.close();
 	}
 	Cnt++;
-
 
 	bool savingStatus = (errorPixelCount > 0) ? false : true;
 	saveCallBack(savingStatus, false, 0, nullptr);
