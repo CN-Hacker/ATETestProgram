@@ -26,7 +26,6 @@ using namespace boost::property_tree;
 
 HSC02A g_TestProgram;
 
-
 #define MODULE_IIC_DUT            2
 #define PCA9535_CMD_PORT_WRITE    0x02
 #define PCA9535_CMD_CFG_WRITE     0x06
@@ -47,76 +46,6 @@ std::array<int, 16> loopingCounter{};
 
 bool bImagePassFlag[16];
 bool bAllPssFlag[16];
-
-//std::map<int, int> LedSiteMap
-//{
-//	{2,0},
-//	{3,1},
-//	{6,2},
-//	{7,3},
-//	{8,4},
-//	{9,5},
-//	{12,6},
-//	{13,7},
-//};
-
-/******************debug 新版光源控制板********************************/
-//class SerialLight : private SERIAL::EvtBasePort
-//{
-//public:
-//	SerialLight(const std::string& com)
-//		: SERIAL::EvtBasePort(com)
-//	{
-//		SetTimeout(serial::Timeout::simpleTimeout(1000));
-//	}
-//	~SerialLight()
-//	{
-//		Close();
-//	}
-//
-//public:
-//	size_t send(const std::vector<uint8_t>& sendCmd)
-//	{
-//		try
-//		{
-//			return m_pSerialPort->write(sendCmd);
-//		}
-//		catch (const std::exception& e)
-//		{
-//			std::cout << e.what() << std::endl;
-//			return 0;
-//		}
-//
-//	}
-//
-//	size_t set_brightness(unsigned int siteID, size_t brightness)
-//	{
-//#define LB(_val) (uint8_t)((_val) & 0xff)
-//#define HB(_val) (uint8_t)(((_val) >> 8u) & 0xff)
-//
-//		std::vector<uint8_t> sendCmd{ 0xC0, 0xA5, 0x62, 0x00, 0x00, 0x00, 0x0A, 0xA0 };
-//		sendCmd[3] = LB(siteID);
-//		sendCmd[4] = HB(brightness);
-//		sendCmd[5] = LB(brightness);
-//
-//		return send(sendCmd);
-//	}
-//
-//	size_t read(std::vector<uint8_t>& sendCmd)
-//	{
-//		sendCmd.clear();
-//		sendCmd.resize(16);
-//		try
-//		{
-//			return m_pSerialPort->read(sendCmd);
-//		}
-//		catch (const std::exception& e)
-//		{
-//			std::cout << e.what() << std::endl;
-//			return 0;
-//		}
-//	}
-//};
 
 namespace fs = boost::filesystem;
 
@@ -189,7 +118,6 @@ bool HSC02A::SwitchMIPI2PMU(unsigned short SwitchData, bool bPMU)
 	return bRet;
 }
 
-/*add 20210513*/
 void HSC02A::GetTestExecFilePath(std::string & filepath)
 {
 	filepath.clear();
@@ -340,7 +268,6 @@ void HSC02A::SetCLK()
 	ATE()->DCLevels()->Signal("EXCLK")->SetClkDividend(16);
 	ATE()->DCLevels()->Signal("EXCLK")->Assign(DIGITAL_CLK);
 	
-
 }
 
 int HSC02A::PreInstall()
@@ -364,11 +291,6 @@ int HSC02A::PreInit()
 
 int HSC02A::PostInit()
 {
-	//for (const auto & col : addcol)
-	//{
-	//	ATE()->Datalog()->SetDefaultDatalogCustomContent(CSV_Body::Headers, col.second, col.first);
-	//}
-
 	return 0;
 }
 
@@ -431,11 +353,7 @@ int HSC02A::StartOfTest()
 		
 		SwitchMIPI2PMU();//V2
 	}
-	//for (auto & i : vSites)
-	//{
-	//	ATE()->Site()->SetEOSEnable(i, false);   //mask 20210420
-	//	CISImage()->DVPSetTime(i, 1000);	//使能DVP delay参数调整功能
-	//}
+	
 	EVTSUM("Start of Test is called.\r\n");
 	SetCLK();
 	/*namespace fs = boost::filesystem;
@@ -535,9 +453,6 @@ int HSC02A::StartOfLot()
 	const string TestPhase = ATE()->Datalog()->GetTestPhase();
 	EVTSYS(LEVEL_INFO, "TestPhase is %s\r\n", TestPhase.data());
 
-
-
-
 	m_strLotID = lotId;
 	m_strLotStartTime = GetCurTime();
 	m_strLotPhase = TestPhase;
@@ -579,8 +494,6 @@ int HSC02A::StartOfSite(const unsigned int siteNum)
 		delete[] m_imageTestResults[siteNum];
 		m_imageTestResults[siteNum] = nullptr;
 	}
-	//modify in20211229
-	//imageCount.fill(0);
 
 	return 0;
 }
@@ -599,7 +512,7 @@ int HSC02A::EndOfSite(const unsigned int siteNum, bool goodExit)
 		ATE()->Bin()->Increment(1, siteNum);
 		
 	}
-	//m_ledCtr.SetCctLux(siteNum, 0);
+	
 	for (auto &site : vSites)
 	{
 		//light.set_brightness(site, m_LuxMap[testName][site]);
@@ -621,11 +534,7 @@ int HSC02A::UserLoad()
 	ATE()->Site()->GetQualified(vQualifiedSites);
 	for (auto & i : vQualifiedSites)
 	{
-		LoadBoardPowerOn(i);    //mask for debug
-
-		//g_siteIndex[i] = ATE()->SignalMap()->Signal("EXCLK")->GetSiteIndex(i);
-
-		//CISImage()->SetSiteIndex(i, g_siteIndex[i]);
+		LoadBoardPowerOn(i);    
 	}
 
 	return 0;
@@ -652,11 +561,7 @@ void HSC02A::PowerUpSequence()
 	ATE()->Site()->GetActive(vSites);
 
 	PowerOff();
-	//ATE()->PinPMU()->Signal("AllPMU")->Disconnect();
-	//for (auto site : vSites)
-	//{
-	//	ATE()->HWInterface()->WriteRegister(site, 0x890000, 0, 0xBFC1CA00);   //RC不补偿-default 20210416
-	//}
+	
 	ATE()->DCLevels()->Block("General")->Execute();
 	//IIC Pin Pullup  0-disconnect   1-connect
 	ATE()->DIB()->Signal("I2C_EN")->CBitsOn();
@@ -671,8 +576,6 @@ void HSC02A::PowerUpSequence()
 	ATE()->SleepMs(10);
 	ATE()->PinPMU()->FV("RSTB", PD_RS_Voltage, 20mA, true, -20mA, 20mA);
 	ATE()->SleepMs(100);
-
-
 	
 }
 
@@ -687,14 +590,11 @@ void HSC02A::PowerUpSequenceIDD()
 	ATE()->SleepUs(100);
 	ATE()->DPS()->FV("IOVDD", 0V, 25.6mA, true, -25.6mA, 25.6mA);
 	ATE()->SleepUs(100);
-	//for (auto site : vSites)
-	//{
-	//	ATE()->HWInterface()->WriteRegister(site, 0x890000, 0, 0xBFC1CA00);   //RC不补偿-default 20210416
-	//}
+	
 	ATE()->DCLevels()->Block("General")->Execute();
-	//IIC Pin Pullup  0-disconnect   1-connect
+	
 	ATE()->DIB()->Signal("I2C_EN")->CBitsOn();
-	//ATE()->PinPMU()->FV("I2CID", PD_RS_Voltage, 200uA, true, -200uA, 200uA);
+	
 	ATE()->PinPMU()->FV("I2CID", 0V, 20mA, true, -20mA, 20mA);
 	ATE()->DCLevels()->Signal("EXCLK")->SignalEnable(DSM_CLOCK, false);
 	ATE()->PinPMU()->FV("RSTB", 0V, 20mA, true, -20mA, 20mA);
@@ -711,7 +611,6 @@ void HSC02A::PowerUpSequenceIDD()
 	ATE()->PinPMU()->FV("RSTB", PD_RS_Voltage, 20mA, true, -20mA, 20mA);
 	ATE()->SleepMs(100);
 
-
 }
 
 void HSC02A::PowerUpSequenceLight()
@@ -725,14 +624,11 @@ void HSC02A::PowerUpSequenceLight()
 	ATE()->SleepUs(100);
 	ATE()->DPS()->FV("IOVDD", 0V, 25.6mA, true, -38.4mA, 38.4mA);
 	ATE()->SleepUs(100);
-	//for (auto site : vSites)
-	//{
-	//	ATE()->HWInterface()->WriteRegister(site, 0x890000, 0, 0xBFC1CA00);   //RC不补偿-default 20210416
-	//}
+	
 	ATE()->DCLevels()->Block("General")->Execute();
-	//IIC Pin Pullup  0-disconnect   1-connect
+	
 	ATE()->DIB()->Signal("I2C_EN")->CBitsOn();
-	//ATE()->PinPMU()->FV("I2CID", PD_RS_Voltage, 200uA, true, -200uA, 200uA);
+	
 	ATE()->PinPMU()->FV("I2CID", 0V, 20mA, true, -20mA, 20mA);
 	ATE()->DCLevels()->Signal("EXCLK")->SignalEnable(DSM_CLOCK, false);
 	ATE()->PinPMU()->FV("RSTB", 0V, 20mA, true, -20mA, 20mA);
@@ -811,7 +707,7 @@ void HSC02A::PowerDownSequenceLight()
 	ATE()->PinPMU()->FV("AllPMU",0V,2mA,true,-2mA,2mA);
 	ATE()->PinPMU()->FV("AllUTP",0V,2mA,true,-2mA,2mA);
 	ATE()->SleepMs(5);
-	//DisConnectAllPins();
+	
 }
 
 bool HSC02A::ReadRegisterFromfile()
@@ -917,9 +813,7 @@ bool HSC02A::ReadRegisterFromfile()
 
 void HSC02A::DisConnectAllPins()
 {
-	//auto a = ATE();
-	//auto dps = a->DPS();
-	//auto signal = dps->Signal("AllDps");
+	
 	ATE()->DPS()->Signal("AllDPS")->Disconnect();
 	ATE()->PinPMU()->Signal("AllPMU")->Disconnect();
 	ATE()->PinPMU()->Signal("ALLUTP")->Disconnect();
@@ -970,10 +864,6 @@ bool HSC02A::WriteRegister(std::string testItem, bool bEnableReadBack)
 	vector<unsigned int> vSites;
 	ATE()->Site()->GetActive(vSites);
 
-	//for (auto siteNum : vSites)
-	//{
-	//	ATE()->Site()->SetEOSEnable(siteNum, true);
-	//}
 	EvtIICInterface* siteIIC = ATE()->Bus()->IIC("SCL", "SDA");
 	siteIIC->Config(IIC_SLAVE_ID, false, IicFreq / 100, IicAddrWidthBytes, IicDataWidthBytes);
 	if (m_RegisterMap.find(testItem) != m_RegisterMap.end())
@@ -990,15 +880,8 @@ bool HSC02A::WriteRegister(std::string testItem, bool bEnableReadBack)
 				{
 					bRet = false;
 					EVTSYS(LEVEL_DEBUG, "write IIC cmd fail cnt=%d, addr=0x%x, data=0x%x\r\n", cnt, iter->address, iter->data);
-					//break;
+					
 				}
-				//
-				//siteIIC->Read(iter->address, data);
-				//if (data != iter->data)
-				//{
-				//	
-				//	EVTSYS(LEVEL_ERROR, "Fail Address: 0x%04x, Src Data: 0x%04x, Dest Data: 0x%04x \r\n",iter->address, iter->data, data);
-				//}
 
 			}
 			EVT_EACH_SITE_BEGIN
@@ -1018,8 +901,7 @@ bool HSC02A::WriteRegister(std::string testItem, bool bEnableReadBack)
 					}
 				}
 			}
-			//siteIIC->Read(iter->address, data);
-
+			
 			EVT_EACH_SITE_END
 				EVT_EACH_SITE_BEGIN
 				if (vErrorCount[activeSite] > 0)
@@ -1027,8 +909,7 @@ bool HSC02A::WriteRegister(std::string testItem, bool bEnableReadBack)
 					EVTSYS(LEVEL_ERROR, "Site%d, %s there are total %d register write and read not same. \r\n", activeSite, testItem.c_str(), vErrorCount[activeSite]);
 				}
 			EVT_EACH_SITE_END
-				//return bRet;
-
+				
 		}
 		else
 		{
@@ -1041,11 +922,7 @@ bool HSC02A::WriteRegister(std::string testItem, bool bEnableReadBack)
 		EVTSYS(LEVEL_ERROR, "%s Register is not find.\n", testItem.c_str());
 		return false;
 	}
-	//for (auto siteNum : vSites)
-	//{
-	//	ATE()->Site()->SetEOSEnable(siteNum, false);
-	//}
-	//ATE()->Site()->ClearEOS(vSites);
+	
 	return bRet;
 }
 
@@ -1053,7 +930,7 @@ bool HSC02A::WriteRegisterBlock(std::string testItem, bool bEnableReadBack)
 {
 	bool bRet = false;
 	EvtIICInterface* siteIIC = ATE()->Bus()->IIC("SCL", "SDA");
-	//siteIIC->Config(IIC_SLAVE_ID, false, IicFreq / 100, IicAddrWidthBytes, IicDataWidthBytes);
+	
 	if (!siteIIC)
 	{
 		EVTSYS(LEVEL_TRACE, "%s %s siteIIC is NULL.\n", __FUNCTION__, testItem.c_str());
@@ -1087,8 +964,6 @@ bool HSC02A::WriteRegisterBlock(std::string testItem, bool bEnableReadBack)
 							const unsigned long addr = static_cast<unsigned long>(pRegisterData->registerOffset);
 							unsigned long writeData = static_cast<unsigned long>(pRegisterData->registerVal);
 
-							//same addr may write more times
-							//find last writeData in this addr
 							for (unsigned int j = uiRegisterArrNum - 1; j > i; j--)
 							{
 								const EVEREST::EvtUnionData* pRegisterDataSearch = &pRegisterDataArr[j];
@@ -1172,16 +1047,10 @@ void HSC02A::OS_VSS(const std::string &testName, Test_Result &result)
 	
 	PowerOff();
 
-
-	//vector<double> SDA_Pin;
-    //ATE()->PinPMU()->FVMV("SDA", 1V, 200uA, true, -200uA, 200uA,1mS,100,SDA_Pin);
-    //ATE()->PinPMU()->FV("SDA", 0V, 200uA, true, -200uA, 200uA);
 	vector<unsigned int> vSites;
 	ATE()->Site()->GetActive(vSites);
 	auto params = ATE()->Test(testName)->GetParamValue("DCMeasure");
 	ATE()->DCMeasure(params)->Execute(DCM_EXEMODE::DCM_PIN_G, true);
-
-
 
 	return;
 }
@@ -1195,9 +1064,7 @@ void HSC02A::OS_VDD(const std::string &testName, Test_Result &result)
 	ATE()->Site()->GetActive(vSites);
 	auto params = ATE()->Test(testName)->GetParamValue("DCMeasure");
 
-
 	ATE()->DCMeasure(params)->Execute(DCM_EXEMODE::DCM_PIN_G, true);
-
 
 	return;
 }
@@ -1205,42 +1072,31 @@ void HSC02A::OS_VDD(const std::string &testName, Test_Result &result)
 void HSC02A::PowerShort(const std::string &testName, Test_Result &result)
 {
 	PowerOff();
-	//ATE()->DIB()->Signal("HVDD_EN")->CBitsOn();
-	//ATE()->DIB()->Signal("NVDD_EN")->CBitsOn();
-	//ATE()->PinPMU()->FV("NVDD_HVDD", 0V, 409.6uA, true, -384uA, 384uA);
+	
 	ATE()->SleepMs(50);
 	DisConnectAllPins();
 	vector<unsigned int> vSites;
 	ATE()->Site()->GetActive(vSites);
 	unsigned int testNum = ATE()->Test(testName)->GetTestNumber();
-	//unsigned short testNum = ATE()->Test(testName)->GetTestNumber();
-	//auto params = ATE()->Test(testName)->GetParamValue("DCMeasure");
-
-	//ATE()->DCMeasure(params)->Execute(DCM_EXEMODE::DCM_PIN_G, true);
-	//ATE()->DIB()->Signal("HVDD_EN")->CBitsOff();
-	//ATE()->DIB()->Signal("NVDD_EN")->CBitsOff();
-
+	
 	vector<double> AVDD;
 	vector<double> DVDD;
 	vector<double> IOVDD;
 	vector<double> CVDD;
 
-
 	ATE()->DPS()->FI("AVDD", -100uA, 256uA, true, -2V, 2V);
 	ATE()->DPS()->FI("DVDD", -100uA, 256uA, true, -2V, 2V);
 	ATE()->DPS()->FI("IOVDD", -100uA, 256uA, true, -2V, 2V);
-	//ATE()->DPS()->FI("CVDD", -100uA, 256uA, true, -2V, 2V);
+	
 	ATE()->SleepMs(300);
 	ATE()->DPS()->MV("AVDD", 50mS, 10mS, 10000, AVDD);
 	ATE()->DPS()->MV("DVDD", 50mS, 10mS, 10000, DVDD);
 	ATE()->DPS()->MV("IOVDD", 50mS, 10mS, 10000, IOVDD);
-	//ATE()->DPS()->MV("CVDD", 50mS, 10mS, 10000, CVDD);
+	
 	ATE()->Datalog()->SetParametricResult(vSites, "AVDD", testNum, AVDD);
 	ATE()->Datalog()->SetParametricResult(vSites, "DVDD", testNum+1, DVDD);
 	ATE()->Datalog()->SetParametricResult(vSites, "IOVDD", testNum+2, IOVDD);
-	//ATE()->Datalog()->SetParametricResult(vSites, "CVDD", testNum+3, CVDD);
-
-	//ATE()->DPS()->FV("AllDPS",0V,500mA,true,-100mA,100mA);
+	
 	PowerOff();
 	DisConnectAllPins();
 	return;
@@ -1251,8 +1107,6 @@ void HSC02A::IIL(const std::string &testName, Test_Result &result)
 	vector<unsigned int> vSites;
 	ATE()->Site()->GetActive(vSites);
 	unsigned short testNum = ATE()->Test(testName)->GetTestNumber();
-
-
 
 	PowerOn();
 
@@ -1279,12 +1133,6 @@ void HSC02A::IIL(const std::string &testName, Test_Result &result)
 	vector<double> D8;
 	vector<double> D9;
 
-	//vector<unsigned int> vSites;
-	//ATE()->Site()->GetActive(vSites);
-	//unsigned short testNum = ATE()->Test(testName)->GetTestNumber();
-	//auto params = ATE()->Test(testName)->GetParamValue("DCMeasure");
-
-	//ATE()->DCMeasure(params)->Execute(DCM_EXEMODE::DCM_PIN_G, true);
 	ATE()->PinPMU()->FV("Leakage_PMU", PD_RS_Voltage, 2uA, true, -2.2uA, 2.2uA);
 	ATE()->PinPMU()->FV("Leakage_UTP", PD_RS_Voltage, 4.096uA, true, -4.096uA, 4.096uA);
 	ATE()->PinPMU()->FV("AllDVP", PD_RS_Voltage, 2uA, true, -2.2uA, 2.2uA);
@@ -1303,8 +1151,6 @@ void HSC02A::IIL(const std::string &testName, Test_Result &result)
 
 	ATE()->PinPMU()->FVMI("LDOEN", 0V, 4.096uA, true, -4.096uA, 4.096uA, 1mS, 1000, LDOEN);
 	ATE()->PinPMU()->FV("LDOEN", PD_RS_Voltage, 4.096uA, true, -4.096uA, 4.096uA);
-
-	
 
 	ATE()->PinPMU()->FVMI("I2CID", 0V, 4.096uA, true, -4.096uA, 4.096uA, 1mS, 1000, I2CID);
 	ATE()->PinPMU()->FV("I2CID", PD_RS_Voltage, 4.096uA, true, -4.096uA, 4.096uA);
@@ -1381,8 +1227,6 @@ void HSC02A::IIL(const std::string &testName, Test_Result &result)
 	ATE()->Datalog()->SetParametricResult(vSites, "D8", testNum + 18, D8);
 	ATE()->Datalog()->SetParametricResult(vSites, "D9", testNum + 19, D9);*/
 
-
-
 	ATE()->PinPMU()->FV("Leakage_PMU", 0V, 2uA, true, -2.2uA, 2.2uA);
 	ATE()->PinPMU()->FV("Leakage_UTP", 0V, 4.096uA, true, -4.096uA, 4.096uA);
 	//ATE()->PinPMU()->FV("AllDVP", 0V, 2uA, true, -2.2uA, 2.2uA);
@@ -1397,8 +1241,7 @@ void HSC02A::IIH(const std::string &testName, Test_Result &result)
 	vector<unsigned int> vSites;
 	ATE()->Site()->GetActive(vSites);
 	unsigned short testNum = ATE()->Test(testName)->GetTestNumber();
-	//auto params = ATE()->Test(testName)->GetParamValue("DCMeasure");
-	//ATE()->DCMeasure(params)->Execute(DCM_EXEMODE::DCM_PIN_G, true);
+	
 	vector<double> SDA;
 	vector<double> SCL;
 	vector<double> EXCLK;
@@ -1440,8 +1283,6 @@ void HSC02A::IIH(const std::string &testName, Test_Result &result)
 
 	ATE()->PinPMU()->FVMI("LDOEN", PD_RS_Voltage, 4.096uA, true, -4.096uA, 4.096uA, 1mS, 1000, LDOEN);
 	ATE()->PinPMU()->FV("LDOEN", 0V, 4.096uA, true, -4.096uA, 4.096uA);
-
-	
 
 	ATE()->PinPMU()->FVMI("I2CID", PD_RS_Voltage, 4.096uA, true, -4.096uA, 4.096uA, 1mS, 1000, I2CID);
 	ATE()->PinPMU()->FV("I2CID", 0V, 4.096uA, true, -4.096uA, 4.096uA);
@@ -1514,14 +1355,9 @@ void HSC02A::IIH(const std::string &testName, Test_Result &result)
 	ATE()->Datalog()->SetParametricResult(vSites, "D8", testNum + 18, D8);
 	ATE()->Datalog()->SetParametricResult(vSites, "D9", testNum + 19, D9);*/
 
-
-
 	ATE()->PinPMU()->FV("Leakage_PMU", 0V, 2uA, true, -2.2uA, 2.2uA);
 	ATE()->PinPMU()->FV("Leakage_UTP", 0V, 4.096uA, true, -4.096uA, 4.096uA);
-	//ATE()->PinPMU()->FV("AllDVP", 0V, 2uA, true, -2.2uA, 2.2uA);
 
-
-	
 	PowerOff();
 	DisConnectAllPins();
 	return;
@@ -1535,13 +1371,9 @@ void HSC02A::IDD_Active(const std::string &testName, Test_Result &result)
 	unsigned short testNum = ATE()->Test(testName)->GetTestNumber();
 	DisConnectAllPins();
 	PowerUpSequenceIDD();
-	//ATE()->DCLevels()->Block("IDD")->Execute();
+	
 	ATE()->SleepMs(100);
-	//ATE()->HWInterface()->WriteRegister(vSites[0], 0x890000, 0, 0x3FC2FFFF);
-	//ATE()->HWInterface()->WriteRegister(vSites[0], 0x890000, 0, 0x3FC3FFFF);
-	//ATE()->DPS()->Signal("DVDD")->ChangeIRange(25.6mA, 0, -38.4mA, 38.4mA, true);
-	//ATE()->DPS()->Signal("IOVDD")->ChangeIRange(25.6mA, 0, -38.4mA, 38.4mA, true);
-
+	
 	std::vector<double> AVDD;
 	std::vector<double> DVDD;
 	std::vector<double> IOVDD;
@@ -1556,42 +1388,14 @@ void HSC02A::IDD_Active(const std::string &testName, Test_Result &result)
 		bRet = HSC02A::WriteRegister("IDD_Active");
 	}
 
-	////1.打光测试IDD
-	//for (auto &site : vSites)
-	//{
-	//	if (LedSiteMap.count(site) == 0) continue;
- //       unsigned short luxValue = m_LuxMap["Light"][site];//获取Light图的Lux值
-	//	m_ledCtr.SetCctLux(LedSiteMap[site], luxValue);//打Light图的光
-
-	//}
-
 	ATE()->SleepMs(500);
 
-
-
-
-
-	//ATE()->HWInterface()->WriteRegister(vSites[0], 0x890000, 0, 0xBFC181C0);
 	ATE()->DPS()->MI("IOVDD", 10mS, 0, 10000, IOVDD);
 	ATE()->DPS()->MI("AVDD", 10mS, 0, 10000, AVDD);
 	ATE()->DPS()->MI("DVDD", 10mS, 0, 10000, DVDD);
 
-	//for (int i = 0; i < 1000; i++)
-	//{
-	//	ATE()->SleepUs(896);
-	//	ATE()->DPS()->MI("IOVDD", 0, 0,1,IOVDD);
-	//	EVTSYS(LEVEL_ERROR, "%f", IOVDD[i]);
-	//}
-
-	//ATE()->HWInterface()->WriteRegister(vSites[0], 0x890000, 0, 0xBFC1CA00);
-	
-	//	EVTSYS(LEVEL_ERROR, "%.9f AVDD\n", AVDD[0]);
-	//	EVTSYS(LEVEL_ERROR, "%.9f DVDD\n", DVDD[0]);
-	//	EVTSYS(LEVEL_ERROR, "%.9f IOVDD\n", IOVDD[0]);
-	//}
-	
 	EVT_EACH_SITE_BEGIN
-		//2.打光测试IDD时注释掉下面3句
+		
 		AVDD[activeIndex] = AVDD[activeIndex] + m_IDDOffsets[activeSite].AVDD;
 		DVDD[activeIndex] = DVDD[activeIndex] + m_IDDOffsets[activeSite].DVDD;
 		IOVDD[activeIndex] = IOVDD[activeIndex] + m_IDDOffsets[activeSite].IOVDD;
@@ -1606,24 +1410,7 @@ void HSC02A::IDD_Active(const std::string &testName, Test_Result &result)
 	EVT_EACH_SITE_END
 
 	PowerDownSequenceIDD();
-	//ATE()->PinPMU()->FV("AllPMU",0V,20mA,true,-20mA,20mA);
-	//DisConnectAllPins();
-
-	//for (auto &site : vSites)
-	//{
-	//	//light.set_brightness(site, m_LuxMap[testName][site]);
-	//	if (LedSiteMap.count(site) == 0) continue;
-	//	m_ledCtr.SetCctLux(LedSiteMap[site], 0);
-	//}
-
-
-	/*3.打光测试IDD
-	for (auto &site : vSites)
-	{
-		if (LedSiteMap.count(site) == 0) continue;
-		m_ledCtr.SetCctLux(LedSiteMap[site], 0);
-	}*/
-
+	
 	return;
 }
 
@@ -1651,8 +1438,6 @@ void HSC02A::IDD_StandBy(const std::string &testName, Test_Result &result)
 	std::vector<double> DVDD;
 	std::vector<double> IOVDD;
 
-
-
 	ATE()->DPS()->MI("AVDD", 10mS, 0, 16384, AVDD);
 	ATE()->DPS()->MI("DVDD", 10mS, 0, 16384, DVDD);
 	ATE()->DPS()->MI("IOVDD", 10mS, 0, 16384, IOVDD);
@@ -1671,7 +1456,6 @@ void HSC02A::IDD_ShutDown(const std::string &testName, Test_Result &result)
 	ATE()->Site()->GetActive(vSites);
 	unsigned short testNum = ATE()->Test(testName)->GetTestNumber();
 
-
 	PowerUpSequence();
 	EvtIICInterface* siteIIC = ATE()->Bus()->IIC("SCL", "SDA");
 	siteIIC->Config(IIC_SLAVE_ID, false, IicFreq / 100, IicAddrWidthBytes, IicDataWidthBytes);
@@ -1688,8 +1472,6 @@ void HSC02A::IDD_ShutDown(const std::string &testName, Test_Result &result)
 	std::vector<double> AVDD;
 	std::vector<double> DVDD;
 	std::vector<double> IOVDD;
-
-
 
 	ATE()->DPS()->MI("AVDD", 10mS, 0, 16384, AVDD);
 	ATE()->DPS()->MI("DVDD", 10mS, 0, 16384, DVDD);
@@ -1710,18 +1492,7 @@ void HSC02A::IIC(const std::string &testName, Test_Result &result)
 	unsigned short testNum = ATE()->Test(testName)->GetTestNumber();
 	unsigned long rdata[27] = { 0 };
 	PowerUpSequence();
-	//bool bRet = true;
-	/*EvtIICInterface* siteIIC = ATE()->Bus()->IIC("SCL", "SDA");
-	siteIIC->Config(IIC_SLAVE_ID, false, IicFreq / 100, IicAddrWidthBytes, IicDataWidthBytes);*/
-	//siteIIC->Write(0x0000, 0xff, 1000);
-	//siteIIC->Read(0x0000, rdata[0], 1000);
-
-	//siteIIC->Write(0x0020, 0x00, 1000);
-	//siteIIC->Read(0x0020, rdata[2], 1000);
-	//ATE()->SleepMs(8);
-	//WriteRegister("Light", true);
-
-
+	
 	EVT_EACH_SITE_BEGIN
 
 	bool bRet = true;
@@ -1731,9 +1502,6 @@ void HSC02A::IIC(const std::string &testName, Test_Result &result)
 	PowerUpSequence();
 	bRet &= WriteRegister("IIC_FF", true);
 	
-
-
-
 	TEST_RESULT result = TEST_RESULT::RESULT_FAIL;
 	if (bRet == true) result = TEST_RESULT::RESULT_PASS;
 	ATE()->Datalog()->SetParametricResult(activeSite, testNum, result);
@@ -1742,68 +1510,6 @@ void HSC02A::IIC(const std::string &testName, Test_Result &result)
 	PowerDownSequence();
 	return;
 }
-
-//void HSC02A::Dark_DPCOn(const std::string &testName, Test_Result &result)
-//{
-//
-//	bool bRet = true;
-//	std::vector<unsigned int> vSites;
-//	ATE()->Site()->GetActive(vSites);
-//	unsigned short testNum = ATE()->Test(testName)->GetTestNumber();
-//	DarkDPCOnTestNumber = testNum;
-//	PowerUpSequence();
-//	//EVTSYS(LEVEL_ERROR, "Befor write register:\n");
-//	//ReadRegister("Dark_DPCOn");
-//	
-//	//ATE()->HWInterface()->WriteRegister(vSites[0], 0x890000, 0, 0xBFC181C0);  //RC补偿
-//
-//	ATE()->DCLevels()->Signal("PCLK")->Assign(DVP_PCLK);
-//	ATE()->DCLevels()->Signal("HREF")->Assign(DVP_DE);
-//	ATE()->DCLevels()->Signal("VCYN")->Assign(DVP_VS);
-//	ATE()->DCLevels()->Signal("D0")->Assign(DVP_D0);
-//	ATE()->DCLevels()->Signal("D1")->Assign(DVP_D1);
-//	ATE()->DCLevels()->Signal("D2")->Assign(DVP_D2);
-//	ATE()->DCLevels()->Signal("D3")->Assign(DVP_D3);
-//	ATE()->DCLevels()->Signal("D4")->Assign(DVP_D4);
-//	ATE()->DCLevels()->Signal("D5")->Assign(DVP_D5);
-//	ATE()->DCLevels()->Signal("D6")->Assign(DVP_D6);
-//	ATE()->DCLevels()->Signal("D7")->Assign(DVP_D7);
-//	ATE()->DCLevels()->Signal("D8")->Assign(DVP_D8);
-//	ATE()->DCLevels()->Signal("D9")->Assign(DVP_D9);
-//
-//	
-//	//ATE()->DCLevels()->Block("ShutDownVterm")->Execute();
-//	if (IicSpeed)
-//	{
-//		bRet = HSC02A::WriteRegisterBlock("Dark_DPCOn");
-//	}
-//	else
-//	{
-//		bRet = HSC02A::WriteRegister("Dark_DPCOn");
-//	}
-//	//ATE()->DCLevels()->Block("ShutDownVterm")->Execute();
-//	ATE()->SleepMs(500);
-//	//EVT_EACH_SITE_BEGIN
-//	//EVTSYS(LEVEL_ERROR, "After write register:\n");
-//	//ReadRegister("Dark_DPCOn");
-//
-//	unsigned short imageWidth = 480, imageHeight = 270;
-//	unsigned char imageAverage = 2;
-//	EVT_IMG::EVT_IMG_DATAWIDTH dataWidth = EVT_IMG::DATA_10BIT;
-//
-//	ATE()->SleepMs(50);
-//
-//	//bool bImg = true;
-//	//boost::timer t;
-//	CISImage()->DVPImageAcquireConfig(result, testName.c_str(), dataWidth, imageAverage, true, imageWidth, imageHeight, 5000, true);
-//
-//	//EVTSYS(LEVEL_DEBUG, "The time of Capture NorTest %f\n", t.elapsed());
-//	//ATE()->HWInterface()->WriteRegister(vSites[0], 0x890000, 0, 0xBFC1CA00);  //取消RC补偿
-//	PowerDownSequence();
-//	
-//
-//	return;
-//}
 
 void HSC02A::Dark_DPCOn(const std::string &testName, Test_Result &result)
 {
@@ -1828,7 +1534,6 @@ void HSC02A::Dark_DPCOn(const std::string &testName, Test_Result &result)
 	ATE()->DCLevels()->Signal("D8")->Assign(DVP_D8);
 	ATE()->DCLevels()->Signal("D9")->Assign(DVP_D9);
 
-	//ATE()->DCLevels()->Block("ImageVterm")->Execute();
 	if (IicSpeed)
 	{
 		bRet = HSC02A::WriteRegisterBlock("Dark_DPCOn");
@@ -1840,21 +1545,16 @@ void HSC02A::Dark_DPCOn(const std::string &testName, Test_Result &result)
 
 	ATE()->SleepMs(500);
 
-
 	unsigned short imageWidth = 480, imageHeight = 270;
 	unsigned char imageAverage = 2;
 	EVT_IMG::EVT_IMG_DATAWIDTH dataWidth = EVT_IMG::DATA_10BIT;
-
 
 	ATE()->SleepMs(50);
 	CISImage()->DVPImageAcquireConfig(result, "test_demo", dataWidth, imageAverage, true, imageWidth, imageHeight, 5000, true);
 	ATE()->SleepMs(50);
 	CISImage()->DVPImageAcquireConfig(result, testName.c_str(), dataWidth, imageAverage, true, imageWidth, imageHeight, 5000, true);
 
-	//EVTSYS(LEVEL_DEBUG, "The time of Capture NorTest %f\n", t.elapsed());
-	
 	PowerDownSequence();
-
 
 	return;
 }
@@ -1882,7 +1582,6 @@ void HSC02A::Dark_DPCOff(const std::string &testName, Test_Result &result)
 	ATE()->DCLevels()->Signal("D8")->Assign(DVP_D8);
 	ATE()->DCLevels()->Signal("D9")->Assign(DVP_D9);
 
-	//ATE()->DCLevels()->Block("ImageVterm")->Execute();
 	if (IicSpeed)
 	{
 		bRet = HSC02A::WriteRegisterBlock("Dark_DPCOff");
@@ -1894,25 +1593,17 @@ void HSC02A::Dark_DPCOff(const std::string &testName, Test_Result &result)
 
 	ATE()->SleepMs(500);
 
-
 	unsigned short imageWidth = 480, imageHeight = 270;
 	unsigned char imageAverage = 2;
 	EVT_IMG::EVT_IMG_DATAWIDTH dataWidth = EVT_IMG::DATA_10BIT;
 
-
 	ATE()->SleepMs(50);
 
-	//bool bImg = true;
-	//boost::timer t;
 	CISImage()->DVPImageAcquireConfig(result, "test_demo", dataWidth, imageAverage, true, imageWidth, imageHeight, 5000, true);
 	ATE()->SleepMs(50);
 	CISImage()->DVPImageAcquireConfig(result, testName.c_str(), dataWidth, imageAverage, true, imageWidth, imageHeight, 5000, true);
 
-
-	//EVTSYS(LEVEL_DEBUG, "The time of Capture NorTest %f\n", t.elapsed());
-	
 	PowerDownSequence();
-
 
 	return;
 }
@@ -1940,7 +1631,6 @@ void HSC02A::TempNoise(const std::string &testName, Test_Result &result)
 	ATE()->DCLevels()->Signal("D8")->Assign(DVP_D8);
 	ATE()->DCLevels()->Signal("D9")->Assign(DVP_D9);
 
-	//ATE()->DCLevels()->Block("ImageVterm")->Execute();
 	if (IicSpeed)
 	{
 		bRet = HSC02A::WriteRegisterBlock("Dark_TempNoise");
@@ -1952,23 +1642,17 @@ void HSC02A::TempNoise(const std::string &testName, Test_Result &result)
 
 	ATE()->SleepMs(500);
 
-
 	unsigned short imageWidth = 480, imageHeight = 270;
 	unsigned char imageAverage = 8;
 	EVT_IMG::EVT_IMG_DATAWIDTH dataWidth = EVT_IMG::DATA_10BIT;
 
-
 	ATE()->SleepMs(50);
 
-	//bool bImg = true;
-	//boost::timer t;
 	CISImage()->DVPImageAcquireConfig(result, "test_demo", dataWidth, 1, true, imageWidth, imageHeight, 5000, true);
 	ATE()->SleepMs(50);
 	CISImage()->DVPImageAcquireConfig(result, testName.c_str(), dataWidth, imageAverage, true, imageWidth, imageHeight, 10000, true);
 
-	
 	PowerDownSequence();
-
 
 	return;
 }
@@ -1997,7 +1681,6 @@ void HSC02A::test_demo(const std::string &testName, Test_Result &result)
 	ATE()->DCLevels()->Signal("D8")->Assign(DVP_D8);
 	ATE()->DCLevels()->Signal("D9")->Assign(DVP_D9);
 
-	//ATE()->DCLevels()->Block("ImageVterm")->Execute();
 	if (IicSpeed)
 	{
 		bRet = HSC02A::WriteRegisterBlock("Dark_DPCOff");
@@ -2016,13 +1699,9 @@ void HSC02A::test_demo(const std::string &testName, Test_Result &result)
 
 	ATE()->SleepMs(50);
 
-	//bool bImg = true;
-	//boost::timer t;
 	CISImage()->DVPImageAcquireConfig(result, testName.c_str(), dataWidth, imageAverage, true, imageWidth, imageHeight, 5000, true);
 
-	//EVTSYS(LEVEL_DEBUG, "The time of Capture NorTest %f\n", t.elapsed());
 	PowerDownSequence();
-
 
 	return;
 }
@@ -2035,13 +1714,11 @@ void HSC02A::Light(const std::string &testName, Test_Result &result)
 	ATE()->Site()->GetActive(vSites);
 	unsigned short testNum = ATE()->Test(testName)->GetTestNumber();
 	LightTestNumber = testNum;
-	//SerialLight light("COM3");
-
-	//PowerUpSequence();
+	
 	DisConnectAllPins();
 	PowerUpSequenceLight();
 
-	//在Light项中测试AVDD/DVDD/IOVDD/CVDD电压值
+	
 	vector<double> iAVDD;
     vector<double> iDVDD;
     vector<double> iIOVDD;
@@ -2079,18 +1756,9 @@ void HSC02A::Light(const std::string &testName, Test_Result &result)
 	{
 		bRet = HSC02A::WriteRegister("Light");
 	}
-	//unsigned long rdata[10] = { 0 };
-	//EvtIICInterface* siteIIC = ATE()->Bus()->IIC("SCL", "SDA");
-	//siteIIC->Config(IIC_SLAVE_ID, false, IicFreq / 100, IicAddrWidthBytes, IicDataWidthBytes);
-	//siteIIC->Write(0x0087, 0x61, 1000);
-	ATE()->SleepMs(500);
-	//ATE()->DIB()->Signal("I2C_EN")->CBitsOff();
-	//ATE()->PinPMU()->Signal("HVDD")->Disconnect();
-	//ATE()->PinPMU()->Signal("NVDD")->Disconnect();
 	
-	//ATE()->SleepMs(2000);
-
-
+	ATE()->SleepMs(500);
+	
 	unsigned short imageWidth = 480, imageHeight = 270;
 	unsigned char imageAverage = 2;
 	EVT_IMG::EVT_IMG_DATAWIDTH dataWidth = EVT_IMG::DATA_10BIT;
@@ -2116,8 +1784,6 @@ void HSC02A::Light(const std::string &testName, Test_Result &result)
 		}
 		EVT_EACH_SITE_END
 
-
-
 		PowerDownSequenceLight();
 		DisConnectAllPins();
 
@@ -2130,12 +1796,7 @@ void HSC02A::Light(const std::string &testName, Test_Result &result)
 	{
 		if (LedSiteMap.count(site) == 0) continue;
         unsigned short luxValue = m_LuxMap[testName][site];
-        //if (Led_test)
-        //{
-        //    EVTSYS(LEVEL_DEBUG, "Led Test: Site %d, Set Lux %d\r\n", site, led_current_lux);
-        //    luxValue = led_current_lux;
-        //}
-
+        
 		m_ledCtr.SetCctLux(LedSiteMap[site], luxValue);
         //ATE()->Datalog()->SetParametricResult(site, 2600, luxValue);
 	}
@@ -2148,10 +1809,7 @@ void HSC02A::Light(const std::string &testName, Test_Result &result)
     ATE()->Datalog()->SetParametricResult(vSites, "DVDD", 2425 , vDVDD);
     ATE()->Datalog()->SetParametricResult(vSites, "IOVDD", 2426 , vIOVDD);
 
-
 	ATE()->SleepMs(200);
-
-
 
 	ATE()->DPS()->MI("AVDD", 100mS, 0, 8192, iAVDD);
 	ATE()->DPS()->MI("DVDD", 100mS, 0, 8192, iDVDD);
@@ -2160,7 +1818,7 @@ void HSC02A::Light(const std::string &testName, Test_Result &result)
 	//ATE()->HWInterface()->WriteRegister(vSites[0], 0x890000, 0, 0xBFC181C0);  //RC补偿
 
 	{
-		//boost::timer t;
+		
 		CISImage()->DVPImageAcquireConfig(
 			result,
 			testName.c_str(),
@@ -2171,28 +1829,12 @@ void HSC02A::Light(const std::string &testName, Test_Result &result)
 			imageHeight,
 			5000,
 			true);
-		//EVTSYS(LEVEL_DEBUG, "The time of Capture LowLight %f\n", t.elapsed());
+		
 	}
 
-	//ATE()->HWInterface()->WriteRegister(vSites[0], 0x890000, 0, 0xBFC1CA00);
-
-
-	//在Light项测试时测试AVDD/DVDD/IOVDD的IDD值
-	//ATE()->DPS()->FV("AVDD",2.8V,25.6mA,true,-25.6mA,25.6mA);
-	//ATE()->DPS()->FV("IOVDD",1.8V,25.6mA,true,-25.6mA,25.6mA);
-	//ATE()->DPS()->FV("DVDD",1.8V,25.6mA,true,-25.6mA,25.6mA);
-
-	//ATE()->SleepMs(50);
-
-
-	
 	EVT_EACH_SITE_BEGIN
-	//iAVDD[activeIndex] = iAVDD[activeIndex] + m_IDDOffsets[activeSite].AVDD;
-	//iDVDD[activeIndex] = iDVDD[activeIndex] + m_IDDOffsets[activeSite].DVDD;
-	//iIOVDD[activeIndex] = iIOVDD[activeIndex] + m_IDDOffsets[activeSite].IOVDD;
-
-	double iSum;
 	
+	double iSum;
 	iSum = iAVDD[activeIndex] + iDVDD[activeIndex] + iIOVDD[activeIndex];
 	
 	ATE()->Datalog()->SetParametricResult(activeSite, "AVDD", 2427, iAVDD[activeIndex]);
@@ -2204,8 +1846,7 @@ void HSC02A::Light(const std::string &testName, Test_Result &result)
 
 	PowerDownSequenceLight();
 	DisConnectAllPins();
-		//light.set_brightness(site, 0);
-	//m_ledCtr.SetCctLux(vSites, 0);
+
 	for (auto &site : vSites)
 	{
 		if (LedSiteMap.count(site) == 0) continue;
@@ -2242,8 +1883,6 @@ void HSC02A::GetTestResult(const std::string &testName, Test_Result &result)
 		usrMsg.height = 0;
 		usrMsg.frameCount = 1;
 
-	
-
 		ATE()->HWInterface()->NotifyUserEvent(&usrMsg, sizeof(UsrMsg_ImageInfo), 0x1 << site, true);
 	};
 	std::vector<std::thread> notifyThreads;
@@ -2252,9 +1891,6 @@ void HSC02A::GetTestResult(const std::string &testName, Test_Result &result)
 		notifyThreads.emplace_back(std::thread(NotifyFunc, site));
 	}
 	std::for_each(notifyThreads.begin(), notifyThreads.end(), std::mem_fn(&std::thread::join));
-
-
-	//unsigned short testNum = ATE()->Test(testName)->GetTestNumber();
 
 	SET_ALL_ACTIVE_SITE_RESULT(RESULT_PASS);
 
@@ -2267,11 +1903,9 @@ void HSC02A::GetTestResult(const std::string &testName, Test_Result &result)
 		m_imageTestResults[activeSite] = nullptr;
 	}
 
-
 	if (ATE()->Site()->WaitTestResult(10000) == 0)
 	{
 		
-
 		ATE()->HWInterface()->GetDMABuffer(activeSite, vAddr);
 
 		unsigned char *ResultBuf = vAddr[0].bufAddr;
@@ -2298,15 +1932,11 @@ void HSC02A::GetTestResult(const std::string &testName, Test_Result &result)
 			if (strcmp(Result.testName, "Dark_DPCOn") == 0)
 			{
 
-				//unsigned short testNum = DarkDPCOnTestNumber;
-				//getImgResult_Dark ret_s;
 				unsigned int testNum = ATE()->Test("Dark_DPCOn")->GetTestNumber();
 
 				DarkImgResultWithDPCOn& ret_s = *(DarkImgResultWithDPCOn*)Result.pData;
 	
-				//todo: set datalog
 				bool bRet = true;
-				//mean
 
 				bRet &= ATE()->Datalog()->SetParametricResult(activeSite, testNum + 1, ret_s.hDeadLineSize);
 				if (!bRet)
@@ -2340,15 +1970,9 @@ void HSC02A::GetTestResult(const std::string &testName, Test_Result &result)
 					bImagePassFlag[activeSite] = false;
 				}
 
-			
-
-
-                
-
                 bRet &= ATE()->Datalog()->SetParametricResult(activeSite, testNum + 3, ret_s.mean);
                 bRet &= ATE()->Datalog()->SetParametricResult(activeSite, testNum + 4, ret_s.std);
 
-            
 				bRet &= ATE()->Datalog()->SetParametricResult(activeSite, testNum + 10, ret_s.clusterCount);
                 bRet &= ATE()->Datalog()->SetParametricResult(activeSite, testNum + 11, ret_s.cluster_Cluster5);
                 bRet &= ATE()->Datalog()->SetParametricResult(activeSite, testNum + 12, ret_s.cluster_4T1);
@@ -2376,18 +2000,15 @@ void HSC02A::GetTestResult(const std::string &testName, Test_Result &result)
 			if (strcmp(Result.testName, "Dark_DPCOff") == 0)
 			{
 
-				//unsigned short testNum = DarkDPCOffTestNumber;
 				unsigned int testNum = ATE()->Test("Dark_DPCOff")->GetTestNumber();
 				DarkImgResultWithDPCOff& ret_s = *(DarkImgResultWithDPCOff*)Result.pData;
 
-				//todo: set datalog
 				bool bRet = true;
-				//mean
+
 				bRet &= ATE()->Datalog()->SetParametricResult(activeSite, testNum + 0, ret_s.badPixelCount1);
 				bRet &= ATE()->Datalog()->SetParametricResult(activeSite, testNum + 1, ret_s.badPixelCount2);
 				bRet &= ATE()->Datalog()->SetParametricResult(activeSite, testNum + 2, ret_s.mean);
 				bRet &= ATE()->Datalog()->SetParametricResult(activeSite, testNum + 3, ret_s.std);
-
 
 				finalTestReuslt &= bRet;
 
@@ -2395,8 +2016,7 @@ void HSC02A::GetTestResult(const std::string &testName, Test_Result &result)
 
 			if (strcmp(Result.testName, "DarkFPN") == 0)
 			{
-
-				//unsigned short testNum = DarkFPNTestNumber;
+				
 				unsigned int testNum = ATE()->Test("DarkFPN")->GetTestNumber();
                 DarkFPNResult& ret_s = *(DarkFPNResult*)Result.pData;
 
@@ -2422,7 +2042,6 @@ void HSC02A::GetTestResult(const std::string &testName, Test_Result &result)
 			if (strcmp(Result.testName, "TempNoise") == 0)
 			{
 
-				//unsigned short testNum = DarkDPCOffTestNumber;
 				unsigned int testNum = ATE()->Test("TempNoise")->GetTestNumber();
 				TempNoiseResult& ret_s = *(TempNoiseResult*)Result.pData;
 				bool bRet = true;
@@ -2569,8 +2188,6 @@ void HSC02A::GetTestResult(const std::string &testName, Test_Result &result)
 				bRet &= ATE()->Datalog()->SetParametricResult(activeSite, testNum + 67, ret_s.balance_RB_ROI9);
 				bRet &= ATE()->Datalog()->SetParametricResult(activeSite, testNum + 68, ret_s.balances_RB_Max);
 
-
-
 				bRet &= ATE()->Datalog()->SetParametricResult(activeSite, testNum + 70, ret_s.balance_GrGb_ROI1);
 				bRet &= ATE()->Datalog()->SetParametricResult(activeSite, testNum + 71, ret_s.balance_GrGb_ROI2);
 				bRet &= ATE()->Datalog()->SetParametricResult(activeSite, testNum + 72, ret_s.balance_GrGb_ROI3);
@@ -2700,8 +2317,6 @@ void HSC02A::GetTestResult(const std::string &testName, Test_Result &result)
 				bRet &= ATE()->Datalog()->SetParametricResult(activeSite, testNum + 2, ret_s.PRNU_Gb);
 				bRet &= ATE()->Datalog()->SetParametricResult(activeSite, testNum + 3, ret_s.PRNU_B);
 
-
-				//add in 2023/06/30         Sensitivity
 				bRet &= ATE()->Datalog()->SetParametricResult(activeSite, testNum + 4, ret_s.Diff_R / (m_Diff_LuxMap["PRNU"][activeSite] * 1 / 30));
 				bRet &= ATE()->Datalog()->SetParametricResult(activeSite, testNum + 5, ret_s.Diff_Gr / (m_Diff_LuxMap["PRNU"][activeSite] * 1 / 30));
 				bRet &= ATE()->Datalog()->SetParametricResult(activeSite, testNum + 6, ret_s.Diff_Gb / (m_Diff_LuxMap["PRNU"][activeSite] * 1 / 30));
@@ -2710,8 +2325,6 @@ void HSC02A::GetTestResult(const std::string &testName, Test_Result &result)
 				finalTestReuslt &= bRet;
 
 			}
-
-			
 
 			if (strcmp(Result.testName, "CG") == 0)
 			{
@@ -2729,18 +2342,14 @@ void HSC02A::GetTestResult(const std::string &testName, Test_Result &result)
 				bRet &= ATE()->Datalog()->SetParametricResult(activeSite, testNum + 4, ret_s.CG);
 				finalTestReuslt &= bRet;
 
-				
-
 			}
-
 
 			if (strcmp(Result.testName, "FWC") == 0)
 			{
-				//unsigned short testNum = FWCTestNumber;
+				
 				unsigned int testNum = ATE()->Test("FWC")->GetTestNumber();
 				FWCResult& ret_s = *(FWCResult*)Result.pData;
 
-				//todo: set datalog
 				bool bRet = true;
 
 				bRet &= ATE()->Datalog()->SetParametricResult(activeSite, testNum + 0, ret_s.R_mean - 2.5 * ret_s.R_std);
@@ -2752,7 +2361,6 @@ void HSC02A::GetTestResult(const std::string &testName, Test_Result &result)
 
 			}
 			offset += sizeof(ImageResult);
-
 
 		}
 
@@ -2798,7 +2406,6 @@ void HSC02A::Temp(const std::string &testName, Test_Result &result)
 
 	ATE()->Datalog()->SetParametricResult(vSites, "IOVDD", testNum+2, IOVDD);
 	return;
-
 
 }
 
@@ -2868,7 +2475,6 @@ void HSC02A::FWC(const std::string &testName, Test_Result &result)
 		m_ledCtr.SetCctLux(LedSiteMap[site], luxValue);
 	}
 
-
 	ATE()->SleepMs(50);
 	{
 		CISImage()->DVPImageAcquireConfig(
@@ -2904,7 +2510,6 @@ void HSC02A::DarkFPN(const std::string &testName, Test_Result &result)
 
 	PowerUpSequence();
 
-
 	ATE()->DCLevels()->Signal("PCLK")->Assign(DVP_PCLK);
 	ATE()->DCLevels()->Signal("HREF")->Assign(DVP_DE);
 	ATE()->DCLevels()->Signal("VCYN")->Assign(DVP_VS);
@@ -2931,21 +2536,17 @@ void HSC02A::DarkFPN(const std::string &testName, Test_Result &result)
 
 	ATE()->SleepMs(500);
 
-
 	unsigned short imageWidth = 480, imageHeight = 270;
 	unsigned char imageAverage = 100;  
 	EVT_IMG::EVT_IMG_DATAWIDTH dataWidth = EVT_IMG::DATA_10BIT;
 
 	ATE()->SleepMs(500);  
 
-	//CISImage()->DVPImageAcquireConfig(result, testName.c_str(), dataWidth, imageAverage, true, imageWidth, imageHeight, 7000, true);     //采集10张图
-	CISImage()->DVPImageAcquireConfig(result, testName.c_str(), dataWidth, imageAverage, true, imageWidth, imageHeight, 650000, true);  //采集100张图
+	CISImage()->DVPImageAcquireConfig(result, testName.c_str(), dataWidth, imageAverage, true, imageWidth, imageHeight, 650000, true);  
 
 	PowerDownSequence();
 
-
 	return;
-
 
 }
 
@@ -2959,7 +2560,6 @@ void HSC02A::PRNU(const std::string &testName, Test_Result &result)
     PRNUTestNumber = testNum;
 
     PowerUpSequence();
-
 
     ATE()->DCLevels()->Signal("PCLK")->Assign(DVP_PCLK);
     ATE()->DCLevels()->Signal("HREF")->Assign(DVP_DE);
@@ -2994,9 +2594,6 @@ void HSC02A::PRNU(const std::string &testName, Test_Result &result)
 
     ATE()->SleepMs(50);
 
-    // 需要对PRNU40或者PRNU80分别打灯
-    // 采集图像,并且调用PRNU
-
 	if (m_LedCalFlag)
 	{
 		EVT_EACH_SITE_BEGIN
@@ -3018,7 +2615,6 @@ void HSC02A::PRNU(const std::string &testName, Test_Result &result)
 		}
 		EVT_EACH_SITE_END
 
-			//return;
 	}
 
 	if (m_LedCalFlag)
@@ -3044,7 +2640,6 @@ void HSC02A::PRNU(const std::string &testName, Test_Result &result)
 
 			return;
 	}
-
 
 	for (auto &site : vSites)
 	{
@@ -3105,9 +2700,6 @@ void HSC02A::DarkCurrent(const std::string &testName, Test_Result &result)
 	ATE()->DCLevels()->Signal("D8")->Assign(DVP_D8);
 	ATE()->DCLevels()->Signal("D9")->Assign(DVP_D9);
 
-	//ATE()->DCLevels()->Block("ImageVterm")->Execute();
-
-	//写入Dark_0.5s寄存器
 	if (IicSpeed)
 	{
 		bRet = HSC02A::WriteRegisterBlock("Darkframe1");
@@ -3129,7 +2721,6 @@ void HSC02A::DarkCurrent(const std::string &testName, Test_Result &result)
 	CISImage()->DVPImageAcquireConfig(result, "DarkFrame1", dataWidth, imageAverage, true, imageWidth, imageHeight, 5000, true);
 
 	ATE()->SleepMs(50);
-	//写入Dark_0.0625s寄存器
 	if (IicSpeed)
 	{
 		bRet = HSC02A::WriteRegisterBlock("Darkframe2");
@@ -3164,7 +2755,6 @@ void HSC02A::CG(const std::string& testName, Test_Result& result)
 
 	PowerUpSequence();
 
-
 	ATE()->DCLevels()->Signal("PCLK")->Assign(DVP_PCLK);
 	ATE()->DCLevels()->Signal("HREF")->Assign(DVP_DE);
 	ATE()->DCLevels()->Signal("VCYN")->Assign(DVP_VS);
@@ -3191,15 +2781,11 @@ void HSC02A::CG(const std::string& testName, Test_Result& result)
 
 	ATE()->SleepMs(500);
 
-
 	unsigned short imageWidth = 480, imageHeight = 270;
 	unsigned char imageAverage = 2;
 	EVT_IMG::EVT_IMG_DATAWIDTH dataWidth = EVT_IMG::DATA_10BIT;
 
 	ATE()->SleepMs(50);
-
-	// 需要对PRNU40或者PRNU80分别打灯
-	// 采集图像,并且调用PRNU
 
 	if (m_LedCalFlag)
 	{
@@ -3222,7 +2808,6 @@ void HSC02A::CG(const std::string& testName, Test_Result& result)
 		}
 		EVT_EACH_SITE_END
 
-			//return;
 	}
 
 	if (m_LedCalFlag)
@@ -3249,8 +2834,6 @@ void HSC02A::CG(const std::string& testName, Test_Result& result)
 			return;
 	}
 
-
-
 	for (auto& site : vSites)
 	{
 
@@ -3260,8 +2843,6 @@ void HSC02A::CG(const std::string& testName, Test_Result& result)
 	}
 	ATE()->SleepMs(500);
 	CISImage()->DVPImageAcquireConfig(result, "CG_PRNU40", dataWidth, imageAverage, true, imageWidth, imageHeight, 5000, true);
-
-
 
 	for (auto& site : vSites)
 	{
@@ -3274,23 +2855,12 @@ void HSC02A::CG(const std::string& testName, Test_Result& result)
 	CISImage()->DVPImageAcquireConfig(result, "CG_PRNU80", dataWidth, imageAverage, true, imageWidth, imageHeight, 5000, true);
 	NotifyFunc("CG", vSites);
 
-
 	for (auto& site : vSites)
 	{
 
 		if (LedSiteMap.count(site) == 0) continue;
 		m_ledCtr.SetCctLux(LedSiteMap[site], 0);
 	}
-
-	//if (IicSpeed)
-	//{
-	//	bRet = HSC02A::WriteRegisterBlock("Dark_DPCOff");
-	//}
-	//else
-	//{
-	//	bRet = HSC02A::WriteRegister("Dark_DPCOff");
-	//}
-
 
 	PowerDownSequence();
 
