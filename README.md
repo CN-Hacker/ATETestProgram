@@ -14,9 +14,15 @@ ATETestProgram
   （3）HSC02ACode文件为实现调用机台硬件资源对Sensor供电和图像算法回传数值转换功能；
 
 3.HSC02A为上位机工程，主要包含配置电测相关指标的测试条件和上下限和测暗图、亮图项写入的Register，及其实现人机交互的界面。
-  （1）交互界面
+  
+  （1）当前可测试项：
   
 ![304e427ac67732827476ff940afe7b0](https://github.com/CN-Hacker/ATETestProgram/assets/143678738/16808c8f-3ef4-4b22-a6ad-2181915a176e)
+
+      电性能：OS_VSS、OS_VDD、PowerShort、IIL/IIH、IDD_Active
+      通讯交互项：IIC
+      暗图项：Dark_DPCOn、Dark_DPCOff、DarkCurrent、TempNoise、DarkFPN
+      亮图项：Light、FWC、PRNU、CG、Sensitivity
   
   （2）Configure文件集
   
