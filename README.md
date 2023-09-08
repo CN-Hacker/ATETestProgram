@@ -14,7 +14,12 @@ ATETestProgram
   （3）HSC02ACode文件为实现调用机台硬件资源对Sensor供电和图像算法回传数值转换功能；
 
 3.HSC02A为上位机工程，主要包含配置电测相关指标的测试条件和上下限和测暗图、亮图项写入的Register，及其实现人机交互的界面。
+  （1）交互界面
 ![304e427ac67732827476ff940afe7b0](https://github.com/CN-Hacker/ATETestProgram/assets/143678738/16808c8f-3ef4-4b22-a6ad-2181915a176e)
+  （2）Register文件集
+  ![image](https://github.com/CN-Hacker/ATETestProgram/assets/143678738/414c2546-53c9-420e-a884-884135c7195e)
+  （3）配合code设置匹配xml文件集
+  ![image](https://github.com/CN-Hacker/ATETestProgram/assets/143678738/fc85d29f-6ed3-40ba-b25d-8aed5212afbc)
 
 
 
