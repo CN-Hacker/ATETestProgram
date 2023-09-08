@@ -81,11 +81,9 @@ const std::array<cv::Mat_<ushort>, EClusterType::Cluster_MAX - 1> ClusterKindMat
     (cv::Mat_<ushort>(3,3) << 0,0,B,0,0,0,B,0,0), // Cluster_2D3,
     (cv::Mat_<ushort>(3,3) << B,0,0,0,0,0,0,0,B), // Cluster_2D4,
     (cv::Mat_<ushort>(1,1) << Gr), // Cluster_1X1,
-    //CClusterKindMat{1, (cv::Mat_<ushort>(0,0))}, // Cluster_Big,
+
 };
 
-// For print debug information
-// for EClusterType to String
 const std::map<EClusterType, std::string> Enum2String_ClusterType
 {
     {Cluster_Cluster5,"Cluster_Cluster5"},
@@ -130,36 +128,10 @@ T MinValue(std::initializer_list<T> ValueList)
     return *std::min_element(ValueList.begin(), ValueList.end());
 }
 
-//bool operator<(const cv::Point& PointLeft, const cv::Point& PointRight)
-//{
-//    return (PointLeft.x+ PointLeft.y)
-//}
-
 unsigned int PointDistance_Rect(const cv::Point& Start, const cv::Point& End)
 {
     return std::max(std::abs(End.x - Start.x), std::abs(End.y - Start.y));
 }
-
-//EPixType AnalysePixType(const cv::Point& PixPoint)
-//{
-//    bool bIsRight = PixPoint.x & 0b1;
-//    bool bIsBottom = ;
-//
-//    uchar PointPlace = ((PixPoint.y & 0b1 << 1) | (PixPoint.x & 0b1)) & 0b11;
-//
-//    EPixType PixType = EPixType::PixType_Max;
-//    switch (ThisPixArray)
-//    {
-//    case R_GR_GB_B:PixType = static_cast<EPixType>(((~bIsRight) << 1 | (bIsBottom)) & 0b11);
-//    case B_GB_GR_R:PixType = static_cast<EPixType>(((~bIsRight) << 1 | (bIsBottom)) & 0b11);
-//    case GB_B_R_GR:PixType = static_cast<EPixType>(((~bIsRight) << 1 | (bIsBottom)) & 0b11);
-//    case GR_R_B_GB:PixType = static_cast<EPixType>(((~bIsRight) << 1 | (bIsBottom)) & 0b11);
-//    default:
-//        break;
-//    }
-//
-//    return PixType;
-//}
 
 void SetPrint(bool bPrint);
 
@@ -329,8 +301,6 @@ ImgErrorCode SplitRawMat(const cv::Mat& SrcMat, ImgPixArray PixArray, cv::Mat& R
     default:
         break;
     }
-    // B_GB_GR_R
-
 
     return Img_Success;
 }
@@ -1080,17 +1050,6 @@ ImgErrorCode DarkImageWithDPCOnTest(unsigned short* RawImage, unsigned int Image
 
     cv::Mat SrcMat(TestImageHeight, TestImageWidth, TestImageType, RawImage);
 
-    // SplitRawMat Variable
-//    cv::Mat R_Mat, Gr_Mat, Gb_Mat, B_Mat;
-//    MaxMin Src_MaxMinMatValue;
-//    MaxMin R_MaxMinMatValue, Gr_MaxMinMatValue, Gb_MaxMinMatValue, B_MaxMinMatValue;
-//#pragma region SplitRawMat
-//    SplitRawMat(
-//        SrcMat, R_Mat, Gr_Mat, Gb_Mat, B_Mat, 
-//        Src_MaxMinMatValue, R_MaxMinMatValue, Gr_MaxMinMatValue, Gb_MaxMinMatValue, B_MaxMinMatValue
-//    );
-//#pragma endregion
-
     double Src_Mean;
     double Src_StdDev;
     GetMeanAndStd(SrcMat, Src_Mean, Src_StdDev);
@@ -1163,8 +1122,7 @@ ImgErrorCode DarkTmpNoise(unsigned short* RawImage, unsigned int ImageHeight, un
     const uint TestImageWidth = ImageWidth;
     const int TestImageType = CV_16UC1;
 	const cv::Rect ROIRect(Condition.LeftTop_X, Condition.LeftTop_Y, Condition.ROI_Width, Condition.ROI_Height);
-    //cv::Mat SrcMat(TestImageHeight, TestImageWidth, TestImageType, RawImage);
-
+    
 	cv::Mat DarkFrame1, DarkFrame2, DarkFrame3,DarkFrame4,DarkFrame5,DarkFrame6,DarkFrame7,DarkFrame8;
 	cv::Mat DarkDiffFrame1, DarkDiffFrame2, DarkDiffFrame3,DarkDiffFrame4,DarkDiffFrame5,DarkDiffFrame6,DarkDiffFrame7,DarkDiffFrame8;
 	cv::Mat DarkMeanFrame;
@@ -1216,7 +1174,6 @@ ImgErrorCode DarkTmpNoise(unsigned short* RawImage, unsigned int ImageHeight, un
 
 	Res->TmpNoise=sqrt((8/7)*(Sum_Sqrt_StdDev/8))/Condition.Gain_x16;//Condition.Gain_x16代表16
 
-
     return Img_Success;
 }
 
@@ -1237,8 +1194,6 @@ ImgErrorCode DarkFPNTest(unsigned short* RawImage, unsigned int ImageHeight, uns
     std::string fileName = "Light_BadPixel_" + std::to_string(Count) + ".txt";
     std::ofstream ofs(fileName, std::ios::trunc);
     
-    
-
     double hfpn = 0.0, vfpn = 0.0;
     for (int Index = 0; Index < Condition.FrameCount; Index++)
     {
@@ -1362,14 +1317,7 @@ ImgErrorCode TestLightImage(unsigned short* RawImage, unsigned int ImageHeight, 
     const double DeadLineThreshold = Condition.DeadLineThreshold;
     if (BPrint == false)
     {
-/*        GetDeadLineFillMirror(R_Mat, DeadLineThreshold, Res->R_HorizontalDeadLineCount, Res->R_VerticalDeadLineCount);
-        GetDeadLineFillMirror(Gr_Mat, DeadLineThreshold, Res->Gr_HorizontalDeadLineCount, Res->Gr_VerticalDeadLineCount);
-        GetDeadLineFillMirror(Gb_Mat, DeadLineThreshold, Res->Gb_HorizontalDeadLineCount, Res->Gb_VerticalDeadLineCount);
-        GetDeadLineFillMirror(B_Mat, DeadLineThreshold, Res->B_HorizontalDeadLineCount, Res->B_VerticalDeadLineCount);   */   
-       /* GetDeadLineFillAllMean(R_Mat,  R_Mean,  DeadLineThreshold, Res->R_HorizontalDeadLineCount, Res->R_VerticalDeadLineCount);
-        GetDeadLineFillAllMean(Gr_Mat, Gr_Mean, DeadLineThreshold, Res->Gr_HorizontalDeadLineCount, Res->Gr_VerticalDeadLineCount);
-        GetDeadLineFillAllMean(Gb_Mat, Gb_Mean, DeadLineThreshold, Res->Gb_HorizontalDeadLineCount, Res->Gb_VerticalDeadLineCount);
-        GetDeadLineFillAllMean(B_Mat,  B_Mean,  DeadLineThreshold, Res->B_HorizontalDeadLineCount, Res->B_VerticalDeadLineCount);*/
+
         GetDeadLineFillMarginMean(R_Mat,  10,  DeadLineThreshold, Res->R_HorizontalDeadLineCount, Res->R_VerticalDeadLineCount);
         GetDeadLineFillMarginMean(Gr_Mat, 10, DeadLineThreshold, Res->Gr_HorizontalDeadLineCount, Res->Gr_VerticalDeadLineCount);
         GetDeadLineFillMarginMean(Gb_Mat, 10, DeadLineThreshold, Res->Gb_HorizontalDeadLineCount, Res->Gb_VerticalDeadLineCount);
@@ -1419,26 +1367,7 @@ ImgErrorCode TestLightImage(unsigned short* RawImage, unsigned int ImageHeight, 
         };
         std::string fileName = "Light_Dealline_" + std::to_string(Count) + ".txt";
         std::ofstream ofs(fileName, std::ios::trunc);
-        //{
-        //    GetDeadLineFillMirror(R_Mat, DeadLineThreshold, Res->R_HorizontalDeadLineCount, Res->R_VerticalDeadLineCount);
-        //    DebugFoo(ofs, "R", EPixType::R);
-        //    GetDeadLineFillMirror(Gr_Mat, DeadLineThreshold, Res->Gr_HorizontalDeadLineCount, Res->Gr_VerticalDeadLineCount);
-        //    DebugFoo(ofs, "Gr", EPixType::Gr);
-        //    GetDeadLineFillMirror(Gb_Mat, DeadLineThreshold, Res->Gb_HorizontalDeadLineCount, Res->Gb_VerticalDeadLineCount);
-        //    DebugFoo(ofs, "Gb", EPixType::Gb);
-        //    GetDeadLineFillMirror(B_Mat, DeadLineThreshold, Res->B_HorizontalDeadLineCount, Res->B_VerticalDeadLineCount);
-        //    DebugFoo(ofs, "B", EPixType::B);
-        //}
-        //{
-        //    GetDeadLineFillAllMean(R_Mat, R_Mean, DeadLineThreshold, Res->R_HorizontalDeadLineCount, Res->R_VerticalDeadLineCount);
-        //    DebugFoo(ofs, "R", EPixType::R);
-        //    GetDeadLineFillAllMean(Gr_Mat, Gr_Mean, DeadLineThreshold, Res->Gr_HorizontalDeadLineCount, Res->Gr_VerticalDeadLineCount);
-        //    DebugFoo(ofs, "Gr", EPixType::Gr);
-        //    GetDeadLineFillAllMean(Gb_Mat, Gb_Mean, DeadLineThreshold, Res->Gb_HorizontalDeadLineCount, Res->Gb_VerticalDeadLineCount);
-        //    DebugFoo(ofs, "Gb", EPixType::Gb);
-        //    GetDeadLineFillAllMean(B_Mat, B_Mean, DeadLineThreshold, Res->B_HorizontalDeadLineCount, Res->B_VerticalDeadLineCount);
-        //    DebugFoo(ofs, "B", EPixType::B);
-        //}
+        
         {
             std::vector<double> TBLR;
             int MarginWidth = 10;
@@ -1565,10 +1494,7 @@ ImgErrorCode TestLightImage(unsigned short* RawImage, unsigned int ImageHeight, 
 
 
 #pragma region FPN
-    //double HorizontalFPN, VerticalFPN;
-    //GetFPN(SrcMat, HorizontalFPN, VerticalFPN);
-    //Res->HorizontalFPN = HorizontalFPN;
-    //Res->VerticalFPN = VerticalFPN;
+    
 #pragma endregion
 
 #pragma region BlemishCount
@@ -1650,7 +1576,7 @@ ImgErrorCode TestRPNU(unsigned short* RawImage40, unsigned short* RawImage80, un
     TwoFrameMeanStd(Image80Frame1_B, Image80FrameDiff_B, Image80Frame1Mean_B, Image80Frame1Std_B, Image80FrameDiffMean_B, Image80FrameDiffStd_B);
 
 	//Mean_80-Mean_40      Sensitivity
-	//add in 2023/06/30
+	
 	double diff_R = Image80Frame1Mean_R - Image40Frame1Mean_R;
 	double diff_Gr = Image80Frame1Mean_Gr - Image40Frame1Mean_Gr;
 	double diff_Gb = Image80Frame1Mean_Gb - Image40Frame1Mean_Gb;
@@ -1901,7 +1827,6 @@ ImgErrorCode DarkCurrentTest(unsigned short* RawImageFrame1, unsigned short* Raw
 	const cv::Rect ROIRect(Condition.LeftTop_X, Condition.LeftTop_Y, Condition.ROI_Width, Condition.ROI_Height);
 	const uint TestImageDepth = Condition.Depth;
 
-
 	double currentMean[2];
 	double currentStd[2];
 
@@ -1916,7 +1841,6 @@ ImgErrorCode DarkCurrentTest(unsigned short* RawImageFrame1, unsigned short* Raw
 	double DC = (currentMean[0] - currentMean[1]) / (16 * 0.4375);
 
 	Res->darkcurrent = DC;
-
 
 	return Img_Success;
 }
