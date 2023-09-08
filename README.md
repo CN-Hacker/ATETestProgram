@@ -18,7 +18,7 @@ ATETestProgram
   
 ![304e427ac67732827476ff940afe7b0](https://github.com/CN-Hacker/ATETestProgram/assets/143678738/16808c8f-3ef4-4b22-a6ad-2181915a176e)
   
-  （2）Register文件集
+  （2）Configure文件集
   
   ![image](https://github.com/CN-Hacker/ATETestProgram/assets/143678738/414c2546-53c9-420e-a884-884135c7195e)
   
